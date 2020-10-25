@@ -6,7 +6,7 @@
                     <div class="wt-footerlogohold">
                         <strong class="wt-logo"><a href="{{ route('welcome') }}"><img src="" alt="SenFreelance"></a></strong>
                         <div class="wt-description">
-                            <p>SenFreelance est le premier portail d'annonce des freelancers au Senegal <a href="javascript:void(0);">plus...</a></p>
+                            <p>SenFreelance est le premier portail d'annonce des freelancers au Senegal <a href="{{ route('about')}}">plus...</a></p>
                         </div>
                         <ul class="wt-socialiconssimple wt-socialiconfooter">
                             <li class="wt-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook-f"></i></a></li>
@@ -22,7 +22,17 @@
                         <ul class="wt-fwidgetcontent">
                             <li><a href="{{ route('about') }}">Qui sommes-nous ?</a></li>
                             <li><a href="{{ route('how') }}">Comment Ça Marche ?</a></li>
-                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="wt-footercol wt-widgetcompany">
+                        <div class="wt-fwidgettitle">
+                            <h3>Nous Rejoindre</h3>
+                        </div>
+                        <ul class="wt-fwidgetcontent">
+                            <li><a href="{{ route('register') }}">S'inscrire</a></li>
+                            <li><a href="{{ route('login') }}">Se Connecter</a></li>
                         </ul>
                     </div>
                 </div>

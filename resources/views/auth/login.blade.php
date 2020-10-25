@@ -1,6 +1,61 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="wt-loginarea">
+    <figure class="wt-userimg">
+        <img src="images/user-login.png" alt="img description">
+    </figure>
+    <div class="wt-loginoption">
+        <a href="javascript:void(0);" id="wt-loginbtn" class="wt-loginbtn">Login</a>
+        <div class="wt-loginformhold">
+            <div class="wt-loginheader">
+                <span>Login</span>
+                <a href="javascript:;"><i class="fa fa-times"></i></a>
+            </div>
+            <form class="wt-formtheme wt-loginform do-login-form">
+                <fieldset>
+                    <div class="form-group">
+                        <input type="text" name="username" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="wt-logininfo">
+                        <a href="javascript:;" class="wt-btn do-login-button">Login</a>
+                        <span class="wt-checkbox">
+                            <input id="wt-login" type="checkbox" name="rememberme">
+                            <label for="wt-login">Keep me logged in</label>
+                        </span>
+                    </div>
+                </fieldset>
+                <div class="wt-loginfooterinfo">
+                    <a href="javascript:;" class="wt-forgot-password">Forgot password?</a>
+                    <a href="register.html">Create account</a>
+                </div>
+            </form>
+            <form class="wt-formtheme wt-loginform do-forgot-password-form wt-hide-form">
+                <fieldset>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control get_password" placeholder="Email">
+                    </div>
+                   
+                    <div class="wt-logininfo">
+                        <a href="javascript:;" class="wt-btn do-get-password">Get Pasword</a>
+                    </div>     
+                </fieldset>
+                <div class="wt-loginfooterinfo">
+                    <a href="javascript:void(0);" class="wt-show-login">Login</a>
+                    <a href="register.html">Create account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a href="register.html" class="wt-btn">Join Now</a>
+</div>
+
+@endsection
+<!--
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,8 +125,6 @@
         </div>
     </div>
 </div>
-@endsection
-
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -82,14 +135,14 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
+           
             <ul class="navbar-nav mr-auto">
 
             </ul>
 
-            <!-- Right Side Of Navbar -->
+    
             <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
+              
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

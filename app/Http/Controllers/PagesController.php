@@ -16,33 +16,9 @@ class PagesController extends Controller
         return view('pages.about');
     }
 
-    public function contact()
-    {
-        return view('pages.contact');
-    }
-
     public function how()
     {
         return view('pages.how');
     }
 
-    public function privacy()
-    {
-        return view('pages.privacy');
-    }
-
-    public function terms()
-    {
-        return view('pages.terms');
-    }
-
-    public function appointment()
-    {
-        return view('pages.appointment');
-    }
-
-    public function pricing()
-    {
-        return view('pages.pricing');
-    }
 }

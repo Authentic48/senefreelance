@@ -4,7 +4,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">
                 <div class="wt-bannerimages">
                     <figure class="wt-bannermanimg" data-tilt>
-                        <img src="images/bannerimg/img-01.png" alt="img description">
+                        <img src="images/bannerimg/hero.jpeg" alt="img description">
                         <img src="images/bannerimg/img-02.png" class="wt-bannermanimgone" alt="img description">
                         <img src="images/bannerimg/img-03.png" class="wt-bannermanimgtwo" alt="img description">
                     </figure>

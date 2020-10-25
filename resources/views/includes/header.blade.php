@@ -13,16 +13,13 @@
                             <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a href="{{ route('about') }}">A Propos</a>
+                                        <a href="{{ route('welcome') }}">Artisans</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('welcome') }}">Freelencers</a>
+                                        <a href="{{ route('register') }}">S'inscrire</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('welcome') }}">Forfaits</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('contact') }}">Contact</a>
+                                        <a href="{{ route('login') }}">Se Connecter</a>
                                     </li>
                                 </ul>
                             </div>
