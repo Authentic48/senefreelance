@@ -31,6 +31,7 @@
                                         </figure>
                                         <div class="wt-username">
                                             <h3>{{ Auth::user()->name }}</h3>
+                                            <span>{{ Auth::user()->roles()->name }}</span>
                                         </div>
                                         <nav class="wt-usernav">
                                             <ul>
