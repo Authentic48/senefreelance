@@ -36,11 +36,11 @@ class UserSeeder extends Seeder
         ]);
 
         $freelancer = User::create(
-            [
-              'name' => 'freelancer',
-              'email' => 'freelancer@gmail.com',
-              'password' => bcrypt('smartpass048'),
-            ]);
+        [
+            'name' => 'freelancer',
+            'email' => 'freelancer@gmail.com',
+            'password' => bcrypt('smartpass048'),
+        ]);
         $admin->roles()->attach($adminRole);
         $manager->roles()->attach($managerRole);
         $freelancer->roles()->attach($freelancerRole);
