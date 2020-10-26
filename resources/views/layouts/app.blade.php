@@ -39,7 +39,7 @@
         <div class="wt-contentwrapper">
             @include('includes.header')
 
-            <main class="py-4">
+            <main id="wt-main" class="wt-main wt-haslayout">
                 @yield('content')
             </main>
 
@@ -64,5 +64,4 @@
     <script src="/js/main.js"></script>
     <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </body>
-
 </html>
