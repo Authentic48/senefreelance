@@ -31,7 +31,7 @@
                                         </figure>
                                         <div class="wt-username">
                                             <h3>{{ Auth::user()->name }}</h3>
-                                            <span>{{ Auth::user()->roles()->name }}</span>
+                                            <span>Freelancer</span>
                                         </div>
                                         <nav class="wt-usernav">
                                             <ul>
@@ -41,7 +41,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-profile.html">
+                                                    <a href="{{ route('profile')}}">
                                                         <span>Parametres</span>
                                                     </a>
                                                 </li>
