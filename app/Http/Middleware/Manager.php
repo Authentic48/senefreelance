@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class Manager
 {
@@ -15,6 +16,15 @@ class Manager
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (!Auth::check()) 
+        {
+            return redirect()->route('login');
+        }
+        $user = Auth::user();
+        if($user->hasRole('manager'))
+        {
+            return $next($request);
+        }  
+        abort(403); 
     }
 }

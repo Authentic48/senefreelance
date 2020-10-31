@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class Freelancer
 {
@@ -15,6 +16,15 @@ class Freelancer
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (!Auth::check()) 
+        {
+            return redirect()->route('login');
+        }
+        $user = Auth::user();
+        if($user->hasRole('freelancer'))
+        {
+            return $next($request);
+        }  
+        abort(403); 
     }
 }
