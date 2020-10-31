@@ -41,6 +41,7 @@ class UserSeeder extends Seeder
             'email' => 'freelancer@gmail.com',
             'password' => bcrypt('smartpass048'),
         ]);
+        
         $admin->roles()->attach($adminRole);
         $manager->roles()->attach($managerRole);
         $freelancer->roles()->attach($freelancerRole);

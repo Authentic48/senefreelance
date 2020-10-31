@@ -15,7 +15,7 @@
             <div class="wt-companysinfo">
                 <figure><img src="images/sidebar/img-02.html" alt="img description"></figure>
                 <div class="wt-title">
-                    <h2><a href="javascript:void(0);">{{ Auth::user()->name }}</a></h2>
+                    <h2><a href="#">{{ Auth::user()->name }}</a></h2>
                     @if (Auth::user()->hasRole('freelencer'))
                      <span>Freelancer</span>
                     @endif
@@ -42,6 +42,14 @@
                         <span>Parametres</span>
                     </a>
                 </li>
+                @if (Auth::user()->hasRole('admin'))
+                <li>
+                    <a href="{{ route('profile') }}">
+                        <i class="ti-briefcase"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                @endif
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="ti-shift-right"></i>
