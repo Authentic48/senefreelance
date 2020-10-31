@@ -21,20 +21,15 @@ Route::get('/how', 'PagesController@how')->name('how');
 
 Auth::routes();
 
-Route::group(['prefix' => 'freelancer', ['middleware' => ['manager','admin','freelancer']]], function(){
-   
-    Route::get('/', 'HomeController@index')->name('freelancer');
-});
-
-Route::group(['prefix' => 'manager',['middleware' => ['manager','admin']]], function(){
-  
-    Route::get('/', 'HomeController@index')->name('manager');
+Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(function () {
     
-});
-
-Route::group(['prefix' => 'admin', ['middleware' => ['admin']]], function(){
-
     Route::get('/', 'HomeController@index')->name('admin');
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::patch('/profile', 'ProfileController@update')->name('profile.update');
 });
+
+Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->group(function () {
+    
+    Route::get('/', 'HomeController@index')->name('freelancer');
+});
+

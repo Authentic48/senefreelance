@@ -21,10 +21,11 @@ class Manager
             return redirect()->route('login');
         }
         $user = Auth::user();
+
         if($user->hasRole('manager'))
         {
             return $next($request);
         }  
-        abort(403); 
+        abort(403);
     }
 }

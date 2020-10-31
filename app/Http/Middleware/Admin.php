@@ -18,14 +18,15 @@ class Admin
     {
         if (!Auth::check()) 
         {
-            return redirect()->route('login');
+          return redirect()->route('login');
         }
         $user = Auth::user();
+
         if($user->hasRole('admin'))
         {
             return $next($request);
         }  
-        abort(403); 
+        abort(403);
   
     }
 }

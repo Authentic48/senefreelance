@@ -37,7 +37,7 @@ class LoginController extends Controller
        return '/manager';
       }
       else {
-       return '/freelancer';
+       return '/';
       } 
     }
 
