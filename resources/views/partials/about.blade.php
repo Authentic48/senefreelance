@@ -31,7 +31,7 @@
                                                 <h2>Dallal Ak Jam</h2>
                                             </div>
                                             <div class="wt-description">
-                                                <p>SenFreelance est le premier portail d'annonce des artisans au Senegal. Notre objectif est d'offrir aux particuliers et aux artisans le moyen le plus fiable et le plus simple pour réaliser vos travaux ou projets.</p>
+                                                <p>SenFreelance est le premier portail d'annonce des professionels au Senegal. Notre objectif est d'offrir aux particuliers et aux professionels le moyen le plus fiable et le plus simple pour réaliser vos travaux ou projets.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -58,7 +58,7 @@
                                         <p>Faire son annonce, c'est partagez son expertise et sa passion!</p>
                                     </div>
                                     <div class="wt-btnarea">
-                                        <a href="javascript:void(0);" class="wt-btn wt-btnvtwo">S'inscrire</a>
+                                        <a href="{{ route('register') }}" class="wt-btn wt-btnvtwo">S'inscrire</a>
                                     </div>
                                 </div>
                             </div>

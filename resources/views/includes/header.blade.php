@@ -13,7 +13,7 @@
                             <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a href="{{ route('welcome') }}">Artisans</a>
+                                        <a href="{{ route('welcome') }}">Professionelles</a>
                                     </li>
                                     @guest
                                     <li class="nav-item">

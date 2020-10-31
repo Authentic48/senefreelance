@@ -36,7 +36,7 @@ class ProfileController extends Controller
             $user->image = $request->image;
         }
         $user->save();
-        return redirect()->route('home')->with(['status' => 'profile modifier avec succes.']);
+        return redirect()->route('welcome')->with(['status' => 'profile modifier avec succes.']);
 
     }
 }
