@@ -44,7 +44,7 @@
                 </li>
                 @if (Auth::user()->hasRole('admin'))
                 <li>
-                    <a href="{{ route('profile') }}">
+                    <a href="{{ route('categories') }}">
                         <i class="ti-briefcase"></i>
                         <span>Categories</span>
                     </a>
