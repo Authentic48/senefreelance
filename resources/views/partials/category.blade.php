@@ -11,102 +11,19 @@
                     </div>
                 </div>
                 <div class="wt-categoryexpl">
+                    @foreach ($categories as $category)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
                         <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-01.png" alt="image description"></figure>
                             <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Mobiles</a></h3>
+                                <h3><a href="javascrip:void(0);">{{ $category->name }}</a></h3>
                             </div>
                             <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
+                                <p>Retrouvez tous les professionels de cette categorie.</p>
+                                <a href="javascript:void(0);">Explorez<i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
-                        <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-08.png" alt="image description"></figure>
-                            <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Digital Marketing</a></h3>
-                            </div>
-                            <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
-                        <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-02.png" alt="image description"></figure>
-                            <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Writing &amp; Translation</a></h3>
-                            </div>
-                            <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
-                        <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-03.png" alt="image description"></figure>
-                            <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Video &amp; Animation</a></h3>
-                            </div>
-                            <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
-                        <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-04.png" alt="image description"></figure>
-                            <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Music &amp; Audio</a></h3>
-                            </div>
-                            <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
-                        <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-05.png" alt="image description"></figure>
-                            <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Programming &amp; Tech</a></h3>
-                            </div>
-                            <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
-                        <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-06.png" alt="image description"></figure>
-                            <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Business</a></h3>
-                            </div>
-                            <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 float-left">
-                        <div class="wt-categorycontent">
-                            <figure><img src="images/categories/img-07.png" alt="image description"></figure>
-                            <div class="wt-cattitle">
-                                <h3><a href="javascrip:void(0);">Fun &amp; Lifestyle</a></h3>
-                            </div>
-                            <div class="wt-categoryslidup">
-                                <p>Consectetur adipisicing elitaed eiusmod tempor incididuatna labore et dolore magna.</p>
-                                <a href="javascript:void(0);">Explore <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 float-left">
                         <div class="wt-btnarea">
                             <a href="javascript:void(0)" class="wt-btn">Voir tous</a>

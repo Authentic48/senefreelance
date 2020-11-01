@@ -71,9 +71,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //dd($id);
         $category = Category::findOrFail($id);
-        //dd($category);
         return view('pages.categoryandsub.edit', compact('category'));
     }
 
@@ -91,10 +89,10 @@ class CategoryController extends Controller
           'required' => 'Ce champ est obligatoire.',
         ];
         $request->validate([
-            'name' => ['required', 'unique:categories'],
+            'name' => ['required'],
         ],$messages);
 
-        $category = $category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         $category->name = $request->name;
 
         $category->save();
@@ -110,7 +108,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = $category = Category::findOrFail($id);
+        $category =Category::findOrFail($id);
         $category->delete();
 
         return redirect()->route('categories')->with(['status' => 'categorie supprimer avec succes.']);

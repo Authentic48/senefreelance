@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class PagesController extends Controller
 {
     public function welcome()
     {
-        return view('pages.welcome');
+        $categories = Category::latest()->take(8)->get();
+
+        return view('pages.welcome', compact('categories'));
     }
 
     public function about()

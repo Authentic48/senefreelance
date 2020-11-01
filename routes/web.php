@@ -32,6 +32,16 @@ Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(funct
     Route::get('/categories/{id}/edit', 'CategoryController@edit')->name('categories.edit');
     Route::patch('/categories/{id}', 'CategoryController@update')->name('categories.update');
     Route::delete('/categories/{id}', 'CategoryController@destroy')->name('categories.delete');
+    Route::post('/subcategories', 'SubcategoryController@store')->name('subcategories.store');
+    Route::get('/subcategories', 'SubcategoryController@create')->name('subcategories.create');
+    Route::get('/subcategories/{id}/edit', 'SubcategoryController@edit')->name('subcategories.edit');
+    Route::patch('/subcategories/{id}', 'SubcategoryController@update')->name('subcategories.update');
+    Route::delete('/subcategories/{id}', 'SubcategoryController@destroy')->name('subcategories.delete');
+    Route::get('/formations', 'FormationController@index')->name('formations');
+    Route::post('/formations', 'FormationController@store')->name('formations.store');
+    Route::get('/formations/{id}/edit', 'FormationController@edit')->name('formations.edit');
+    Route::patch('/formations/{id}', 'FormationController@update')->name('formations.update');
+    Route::delete('/formations/{id}', 'FormationController@destroy')->name('formations.delete');
    
 
 });

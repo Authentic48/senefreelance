@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Subcategory; 
+use App\Category;
 class SubcategoryController extends Controller
 {
     /**
@@ -23,7 +24,8 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::All();
+        return view('pages.categoryandsub.subcat', compact('categories'));
     }
 
     /**
@@ -34,7 +36,21 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = 
+        [
+          'required' => 'Ce champ est obligatoire.',
+        ];
+        $request->validate([
+            'name' => ['required', 'unique:subcategories'],
+            'category_id' => 'required'
+        ],$messages);
+
+        $subcategory = New Subcategory();
+        $subcategory->name = $request->name;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->subcat_name = $request->name;
+        $subcategory->save();
+        return redirect()->back()->with(['status' => 'subcategorie ajouter avec succes.']);
     }
 
     /**
@@ -56,7 +72,9 @@ class SubcategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subcategory = Category::findOrFail($id);
+        
+        return view('pages.categoryandsub.subcatedit', compact('subcategory'));
     }
 
     /**
@@ -68,7 +86,21 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $messages = 
+        [
+          'required' => 'Ce champ est obligatoire.',
+        ];
+        $request->validate([
+            'name' => ['required', 'unique:subcategories'],
+            'category_id' => 'required'
+        ],$messages);
+
+        $subcategory = Category::findOrFail($id);
+        $subcategory->name = $request->name;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->subcat_name = $request->name;
+        $subcategory->save();
+        return redirect()->back()->with(['status' => 'subcategorie modifer avec succes.']);
     }
 
     /**
@@ -79,6 +111,9 @@ class SubcategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subcategory = Category::findOrFail($id);
+        $subcategory->delete();
+        
+        return redirect()->back()->with(['status' => 'subcategorie supprimmer avec succes.']);
     }
 }

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Formation;
 
-class Formation extends Controller
+class FormationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class Formation extends Controller
      */
     public function index()
     {
-        //
+        $formations = Formation::All();
+        return view('pages.formation.index', compact('formations'));
     }
 
     /**
@@ -34,7 +36,19 @@ class Formation extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = 
+        [
+          'required' => 'Ce champ est obligatoire.',
+        ];
+        $request->validate([
+            'name' => ['required', 'unique:categories'],
+        ],$messages);
+
+        $formation = New Formation();
+        $formation->name = $request->name;
+
+        $formation->save();
+        return redirect()->back()->with(['status' => 'categorie ajouter avec succes.']);
     }
 
     /**
@@ -56,7 +70,8 @@ class Formation extends Controller
      */
     public function edit($id)
     {
-        //
+        $formation = Formation::findOrFail($id);
+        return view('pages.formation.edit', compact('formation'));
     }
 
     /**
@@ -68,7 +83,18 @@ class Formation extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $messages = 
+        [
+          'required' => 'Ce champ est obligatoire.',
+        ];
+        $request->validate([
+            'name' => ['required', 'unique:categories'],
+        ],$messages);
+
+        $formation = Formation::findOrFail($id);
+        $formation->name = $request->name;
+        $formation->save();
+        return redirect()->route('formations')->with(['status' => 'categorie modifier avec succes.']);
     }
 
     /**
@@ -79,6 +105,9 @@ class Formation extends Controller
      */
     public function destroy($id)
     {
-        //
+        $formation =Formation::findOrFail($id);
+        $formation->delete();
+
+        return redirect()->route('formations')->with(['status' => 'formation supprimer avec succes.']);
     }
 }
