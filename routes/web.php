@@ -42,6 +42,11 @@ Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(funct
     Route::get('/formations/{id}/edit', 'FormationController@edit')->name('formations.edit');
     Route::patch('/formations/{id}', 'FormationController@update')->name('formations.update');
     Route::delete('/formations/{id}', 'FormationController@destroy')->name('formations.delete');
+    Route::get('/regions', 'RegionController@index')->name('regions');
+    Route::post('/regions', 'RegionController@store')->name('regions.store');
+    Route::get('/regions/{id}/edit', 'RegionController@edit')->name('regions.edit');
+    Route::patch('/regions/{id}', 'RegionController@update')->name('regions.update');
+    Route::delete('/regions/{id}', 'RegionController@destroy')->name('regions.delete');
    
 
 });

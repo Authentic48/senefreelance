@@ -55,6 +55,12 @@
                         <span>Formations</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('regions') }}">
+                        <i class="ti-briefcase"></i>
+                        <span>Regions</span>
+                    </a>
+                </li>
                 @endif
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

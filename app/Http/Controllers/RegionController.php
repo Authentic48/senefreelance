@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Region;
 
-class CategoryController extends Controller
+class RegionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::All();
-        return view('pages.categoryandsub.index', compact('categories'));
+        $regions = Region::All();
+        return view('pages.region.index', compact('regions'));
     }
 
     /**
@@ -44,12 +44,11 @@ class CategoryController extends Controller
             'name' => ['required', 'unique:categories'],
         ],$messages);
 
-        $category = New Category();
-        $category->name = $request->name;
+        $region = New Region();
+        $region->name = $request->name;
 
-        $category->save();
-        return redirect()->back()->with(['status' => 'categorie ajouter avec succes.']);
-
+        $region->save();
+        return redirect()->back()->with(['status' => 'region ajouter avec succes.']);
     }
 
     /**
@@ -71,8 +70,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        return view('pages.categoryandsub.edit', compact('category'));
+        $region = Region::findOrFail($id);
+        return view('pages.region.edit', compact('region'));
     }
 
     /**
@@ -89,15 +88,12 @@ class CategoryController extends Controller
           'required' => 'Ce champ est obligatoire.',
         ];
         $request->validate([
-            'name' => ['required'],
+            'name' => ['required', 'unique:categories'],
         ],$messages);
-
-        $category = Category::findOrFail($id);
-        $category->name = $request->name;
-
-        $category->save();
-        return redirect()->route('categories')->with(['status' => 'categorie modifier avec succes.']);
-
+        $region = Region::findOrFail($id);
+        $region->name = $request->name;
+        $region->save();
+        return redirect()->route('regions')->with(['status' => 'region modifier avec succes.']);
     }
 
     /**
@@ -108,9 +104,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category =Category::findOrFail($id);
-        $category->delete();
-        return redirect()->route('categories')->with(['status' => 'categorie supprimer avec succes.']);
-
+        $region =region::findOrFail($id);
+        $region->delete();
+        return redirect()->route('regions')->with(['status' => 'region supprimer avec succes.']);
     }
 }

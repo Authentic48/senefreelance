@@ -90,7 +90,6 @@ class FormationController extends Controller
         $request->validate([
             'name' => ['required', 'unique:categories'],
         ],$messages);
-
         $formation = Formation::findOrFail($id);
         $formation->name = $request->name;
         $formation->save();
@@ -107,7 +106,6 @@ class FormationController extends Controller
     {
         $formation =Formation::findOrFail($id);
         $formation->delete();
-
         return redirect()->route('formations')->with(['status' => 'formation supprimer avec succes.']);
     }
 }

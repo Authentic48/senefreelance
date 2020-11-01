@@ -12,16 +12,16 @@
             <div class="wt-haslayout wt-dbsectionspace">
                 <div class="wt-dashboardbox wt-dashboardtabsholder">
                     <div class="wt-dashboardboxtitle">
-                        <h2>Categories</h2>
+                        <h2>Regions</h2>
                     </div>
                     <div class="wt-tabscontent tab-content">
                         <div class="wt-personalskillshold tab-pane active fade show" id="wt-skills">
                             <div class="wt-yourdetails wt-tabsinfo">
                                 <div class="wt-tabscontenttitle">
-                                    <h2>Modifier</h2>
+                                    <h2>Regions</h2>
                                 </div>
                                 <div class="wt-skillscontent-holder">
-                                    <form class="wt-formtheme wt-skillsform" action="{{ route('categories.update', $category->id)}}"
+                                    <form class="wt-formtheme wt-skillsform" action="{{ route('regions.update', $region->id)}}"
                                         method="POST">
                                         @method('PATCH')
                                         @csrf
@@ -29,7 +29,7 @@
                                             <div class="form-group">
                                                 <div class="form-group-holder">
                                                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                                                        placeholder="Nom" value="{{ old('name', $category->name) }}">
+                                                        placeholder="Nom" value="{{ old('name', $region->name) }}">
                                                     @error('name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -39,35 +39,11 @@
                                             </div>
                                             <div class="form-group wt-btnarea">
                                                 <button type="submit" class="wt-btn">
-                                                    Ajouter
+                                                    Save
                                                 </button>
                                             </div>
-                                        </fieldset> 
+                                        </fieldset>
                                     </form>
-                                    <div class="wt-myskills">
-                                        <a href="{{ route('subcategories.create') }}" class="wt-btn mb-3">
-                                            Ajouter sub
-                                        </a>
-                                        <ul class="sortable list">
-                                          @foreach ($category->subcategories as $category)
-                                          <li>
-                                            <div class="wt-dragdroptool"><a href="javascript:void(0)"
-                                                    class="lnr lnr-menu"></a></div>
-                                            <span class="skill-dynamic-html">{{ $category->name }}</span>
-                                            <div class="wt-rightarea">
-                                                <a href="{{ route('subcategories.edit', $category->id) }}" class="wt-addinfo"><i class="lnr lnr-pencil"></i></a>
-                                                <a href="{{ route('subcategories.delete', $category->id)}}" onclick="event.preventDefault();
-                                                document.getElementById('del').submit();" class="wt-deleteinfo"><i
-                                                        class="lnr lnr-trash"></i></a>
-                                            </div>
-                                            <form action="{{ route('categories.delete', $category->id)}}" id="del" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                            </form>
-                                        </li>
-                                          @endforeach
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
