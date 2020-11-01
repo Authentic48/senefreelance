@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 
 @section('content')
-@if (session('status'))
-<div class="alert alert-success" role="alert">
-    {{ session('status') }}
-</div>
-@endif
 <section class="wt-haslayout">
+    @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+    @endif
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-9">
             <div class="wt-haslayout wt-dbsectionspace">
@@ -21,14 +21,15 @@
                                     <h2>Formations</h2>
                                 </div>
                                 <div class="wt-skillscontent-holder">
-                                    <form class="wt-formtheme wt-skillsform" action="{{ route('formations.update', $formation->id)}}"
-                                        method="POST">
+                                    <form class="wt-formtheme wt-skillsform"
+                                        action="{{ route('formations.update', $formation->id)}}" method="POST" enctype="multipart/form-data">
                                         @method('PATCH')
                                         @csrf
                                         <fieldset>
                                             <div class="form-group">
                                                 <div class="form-group-holder">
-                                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                                    <input type="text" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
                                                         placeholder="Nom" value="{{ old('name', $formation->name) }}">
                                                     @error('name')
                                                     <span class="invalid-feedback" role="alert">

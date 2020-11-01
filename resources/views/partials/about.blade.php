@@ -1,4 +1,3 @@
-<!--Inner Home Banner Start-->
 <div class="wt-haslayout wt-innerbannerholder">
     <div class="container">
         <div class="row justify-content-md-center">
@@ -14,10 +13,8 @@
         </div>
     </div>
 </div>
-<!--Inner Home End-->
 <main id="wt-main" class="wt-main wt-haslayout wt-innerbgcolor">
     <div class="wt-haslayout wt-main-section">
-        <!--Greetings & Welcome Start-->
         <section class="wt-haslayout">
             <div class="container">
                 <div class="row">
@@ -42,8 +39,6 @@
                 </div>
             </div>
         </section>
-        <!--Greetings & Welcome End-->
-        <!--Signup Start-->
         <section class="wt-haslayout">
             <div class="container">
                 <div class="row">
@@ -58,7 +53,9 @@
                                         <p>Faire son annonce, c'est partagez son expertise et sa passion!</p>
                                     </div>
                                     <div class="wt-btnarea">
+                                        @if (!Auth::check())
                                         <a href="{{ route('register') }}" class="wt-btn wt-btnvtwo">S'inscrire</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -67,6 +64,5 @@
                 </div>
             </div>
         </section>
-        <!--Signup End-->
     </div>
 </main>

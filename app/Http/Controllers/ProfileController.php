@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -28,15 +30,21 @@ class ProfileController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'email' =>'required'
         ],$messages);
+
         $user = User::findOrFail(auth()->user()->id);
         $user->name = $request->name;
         $user->email = $request->email;
+        
         if ($request->has('image'))
         {
-            $user->image = $request->image;
+            $image = $request->file('image');
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = '/images'; 
+            $filePath = Storage::disk('do_spaces')->putFileAs($folder, $image, $name, 'public');
+            $user->image = $filePath;
         }
         $user->save();
-        return redirect()->route('welcome')->with(['status' => 'profile modifier avec succes.']);
+        return redirect()->back()->with(['status' => 'profile modifier avec succes.']);
 
     }
 }

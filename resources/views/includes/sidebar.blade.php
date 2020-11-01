@@ -13,7 +13,7 @@
                 <img src="images/sidebar/img-01.jpg" alt="img description">
             </figure>
             <div class="wt-companysinfo">
-                <figure><img src="images/sidebar/img-02.html" alt="img description"></figure>
+                <figure><img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}" alt="img description"></figure>
                 <div class="wt-title">
                     <h2><a href="#">{{ Auth::user()->name }}</a></h2>
                     @if (Auth::user()->hasRole('freelencer'))

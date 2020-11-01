@@ -14,7 +14,7 @@
                 <div class="wt-bannercontent">
                     <div class="wt-bannerhead">
                         <div class="wt-title">
-                            <h1><span>Recruitez des artisans</span>pour tous travaux,</h1>
+                            <h1><span>Retrouvez des Freelancers facilement, </span></h1>
                         </div>
                     </div>
                     <form class="wt-formtheme wt-formbanner">
@@ -29,14 +29,6 @@
                                         <span class="wt-radio">
                                             <input id="wt-freelancers" data-title="Freelancers" type="radio" name="searchtype" value="freelancer" checked>
                                             <label for="wt-freelancers">Freelancers</label>
-                                        </span>
-                                        <span class="wt-radio">
-                                            <input id="wt-jobs"  data-title="Jobs" type="radio" name="searchtype" value="job">
-                                            <label for="wt-jobs">Jobs</label>
-                                        </span>
-                                        <span class="wt-radio">
-                                            <input id="wt-company"  data-title="Companies" type="radio" name="searchtype" value="job">
-                                            <label for="wt-company">Companies</label>
                                         </span>
                                     </div>
                                     <a href="#" class="wt-searchbtn"><i class="lnr lnr-magnifier"></i></a>

@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 
 @section('content')
-@if (session('status'))
-<div class="alert alert-success" role="alert">
-    {{ session('status') }}
-</div>
-@endif
 <section class="wt-haslayout">
+    @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+    @endif
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-9">
             <div class="wt-haslayout wt-dbsectionspace">
@@ -27,7 +27,8 @@
                                         <fieldset>
                                             <div class="form-group">
                                                 <div class="form-group-holder">
-                                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                                    <input type="text" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
                                                         placeholder="Nom" value="{{ old('name') }}">
                                                     @error('name')
                                                     <span class="invalid-feedback" role="alert">
@@ -45,23 +46,25 @@
                                     </form>
                                     <div class="wt-myskills">
                                         <ul class="sortable list">
-                                          @foreach ($formations as $formation)
-                                          <li>
-                                            <div class="wt-dragdroptool"><a href="javascript:void(0)"
-                                                    class="lnr lnr-menu"></a></div>
-                                            <span class="skill-dynamic-html">{{ $formation->name }}</span>
-                                            <div class="wt-rightarea">
-                                                <a href="{{ route('formations.edit', $formation->id) }}" class="wt-addinfo"><i class="lnr lnr-pencil"></i></a>
-                                                <a href="{{ route('formations.delete', $formation->id)}}" onclick="event.preventDefault();
+                                            @foreach ($formations as $formation)
+                                            <li>
+                                                <div class="wt-dragdroptool"><a href="javascript:void(0)"
+                                                        class="lnr lnr-menu"></a></div>
+                                                <span class="skill-dynamic-html">{{ $formation->name }}</span>
+                                                <div class="wt-rightarea">
+                                                    <a href="{{ route('formations.edit', $formation->id) }}"
+                                                        class="wt-addinfo"><i class="lnr lnr-pencil"></i></a>
+                                                    <a href="{{ route('formations.delete', $formation->id)}}" onclick="event.preventDefault();
                                                 document.getElementById('del').submit();" class="wt-deleteinfo"><i
-                                                        class="lnr lnr-trash"></i></a>
-                                            </div>
-                                            <form action="{{ route('formations.delete', $formation->id)}}" id="del" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                            </form>
-                                        </li>
-                                          @endforeach
+                                                            class="lnr lnr-trash"></i></a>
+                                                </div>
+                                                <form action="{{ route('formations.delete', $formation->id)}}" id="del"
+                                                    method="POST">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
