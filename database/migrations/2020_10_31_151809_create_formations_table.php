@@ -13,11 +13,14 @@ class CreateFormationsTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('formations'))
+        {
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
         });
+        }
     }
 
     /**

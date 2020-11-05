@@ -3,7 +3,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <strong class="wt-logo"><a href="{{ route('welcome') }}"><img src="" alt="SenFreelance"></a></strong>
+                    <strong class="wt-logo"><a href="{{ route('welcome') }}"><img src=""
+                                alt="SenFreelance"></a></strong>
                     <div class="wt-rightarea">
                         <nav id="wt-nav" class="wt-nav navbar-expand-lg">
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -27,7 +28,10 @@
                                     @else
                                     <div class="wt-userlogedin">
                                         <figure class="wt-userimg">
-                                            <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}" alt="image description">
+                                            @if (Auth::user()->image)
+                                            <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}"
+                                                alt="profile">
+                                            @endif
                                         </figure>
                                         <div class="wt-username">
                                             <h3>{{ Auth::user()->name }}</h3>
@@ -35,11 +39,21 @@
                                         </div>
                                         <nav class="wt-usernav">
                                             <ul>
+                                                @if (Auth::user()->hasRole('freelancer') &&
+                                                !Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
-                                                    <a href="dashboard-profile.html">
-                                                        <span>Mon Profile</span>
+                                                    <a href="{{ route('freelancers.create')}}">
+                                                        <span>Creer mon profile</span>
                                                     </a>
                                                 </li>
+                                                @endif
+                                                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                                                <li>
+                                                    <a href="{{ route('profile')}}">
+                                                        <span>Mon profile</span>
+                                                    </a>
+                                                </li>
+                                                @endif
                                                 <li>
                                                     <a href="{{ route('profile')}}">
                                                         <span>Parametres</span>
@@ -51,7 +65,8 @@
                                                         <span>Se Deconnecter</span>
                                                     </a>
                                                 </li>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
                                                     @csrf
                                                 </form>
                                             </ul>

@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return null !== $this->roles()->where('name', $role)->first();
     }
+
+    public function freelancer()
+    {
+        return $this->hasOne('App\Freelancer');
+    }
+
+    public function hasFreelancerAccount($user_id)
+    {
+        return null !== $this->freelancer()->where('user_id', $user_id)->first();
+    }
 }

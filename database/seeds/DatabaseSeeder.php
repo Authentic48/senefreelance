@@ -3,7 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Role;
-
+use App\Category;
+use App\Region;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             RoleSeeder::class,
+            CategorySeeder::class,
+            RegionSeeder::class,
         ]);
     }
 }

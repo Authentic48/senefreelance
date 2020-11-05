@@ -13,7 +13,9 @@
                 <img src="images/sidebar/img-01.jpg" alt="img description">
             </figure>
             <div class="wt-companysinfo">
-                <figure><img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}" alt="img description"></figure>
+                @if (Auth::user()->image)
+                <figure> <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}" alt="img description"></figure>
+                @endif
                 <div class="wt-title">
                     <h2><a href="#">{{ Auth::user()->name }}</a></h2>
                     @if (Auth::user()->hasRole('freelencer'))
@@ -30,12 +32,23 @@
         </div>
         <nav id="wt-navdashboard" class="wt-navdashboard">
             <ul>
+                @if (Auth::user()->hasRole('freelancer') &&
+                !Auth::user()->hasFreelancerAccount(Auth::user()->id))
                 <li>
-                    <a href="#">
+                    <a href="{{ route('freelancers.create')}}">
                         <i class="ti-briefcase"></i>
-                        <span>Mon Profile</span>
+                        <span>Creer mon profile</span>
                     </a>
                 </li>
+                @endif
+                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                <li>
+                    <a href="{{ route('profile')}}">
+                        <i class="ti-briefcase"></i>
+                        <span>Mon profile</span>
+                    </a>
+                </li>
+                @endif
                 <li>
                     <a href="{{ route('profile') }}">
                         <i class="ti-briefcase"></i>

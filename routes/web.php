@@ -48,10 +48,16 @@ Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(funct
     Route::patch('/regions/{id}', 'RegionController@update')->name('regions.update');
     Route::delete('/regions/{id}', 'RegionController@destroy')->name('regions.delete');
    
-
 });
 
 Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->group(function () {
+
+    Route::get('/freelancers', 'FreelancerController@index')->name('freelancers');
+    Route::get('/profile/create', 'FreelancerController@create')->name('freelancers.create');
+    Route::post('/freelancers', 'FreelancerController@store')->name('freelancers.store');
+    Route::get('/freelancers/{id}/edit', 'FreelancerController@edit')->name('freelancers.edit');
+    Route::patch('/freelancers/{id}', 'FreelancerController@update')->name('freelancers.update');
+    Route::delete('/freelancers/{id}', 'FreelancerController@destroy')->name('freelancers.delete');
     
 });
 
