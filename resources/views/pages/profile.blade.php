@@ -13,7 +13,7 @@
                         <div class="wt-personalskillshold tab-pane active fade show" id="wt-skills">
                             <div class="wt-yourdetails wt-tabsinfo">
                                 <div class="wt-tabscontenttitle">
-                                    <h2>Your Details</h2>
+                                    <h2>Votre Compte</h2>
                                 </div>
                                 <form class="wt-formtheme wt-userform" method="POST"
                                     action="{{ route('profile.update') }}" enctype="multipart/form-data">

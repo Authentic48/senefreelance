@@ -12,4 +12,9 @@ class Freelancer extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function getRouteKeyName()
+    {
+      return 'ref';
+    }
 }

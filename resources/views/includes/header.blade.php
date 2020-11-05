@@ -14,7 +14,7 @@
                             <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a href="{{ route('welcome') }}">Professionelles</a>
+                                        <a href="{{ route('freelancers') }}">Professionelles</a>
                                     </li>
                                     @guest
                                     <li class="nav-item">
@@ -49,7 +49,7 @@
                                                 @endif
                                                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
-                                                    <a href="{{ route('profile')}}">
+                                                    <a href="{{ route('freelancers.edit') }}">
                                                         <span>Mon profile</span>
                                                     </a>
                                                 </li>

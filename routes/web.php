@@ -19,6 +19,10 @@ Route::get('/about', 'PagesController@about')->name('about');
 
 Route::get('/how', 'PagesController@how')->name('how');
 
+Route::get('/freelancers', 'FreelancerController@index')->name('freelancers');
+Route::get('/freelancers/{ref}', 'FreelancerController@show')->name('freelancers.show');
+
+
 Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -42,22 +46,15 @@ Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(funct
     Route::get('/formations/{id}/edit', 'FormationController@edit')->name('formations.edit');
     Route::patch('/formations/{id}', 'FormationController@update')->name('formations.update');
     Route::delete('/formations/{id}', 'FormationController@destroy')->name('formations.delete');
-    Route::get('/regions', 'RegionController@index')->name('regions');
-    Route::post('/regions', 'RegionController@store')->name('regions.store');
-    Route::get('/regions/{id}/edit', 'RegionController@edit')->name('regions.edit');
-    Route::patch('/regions/{id}', 'RegionController@update')->name('regions.update');
-    Route::delete('/regions/{id}', 'RegionController@destroy')->name('regions.delete');
    
 });
 
 Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->group(function () {
 
-    Route::get('/freelancers', 'FreelancerController@index')->name('freelancers');
     Route::get('/profile/create', 'FreelancerController@create')->name('freelancers.create');
     Route::post('/freelancers', 'FreelancerController@store')->name('freelancers.store');
-    Route::get('/freelancers/{id}/edit', 'FreelancerController@edit')->name('freelancers.edit');
-    Route::patch('/freelancers/{id}', 'FreelancerController@update')->name('freelancers.update');
-    Route::delete('/freelancers/{id}', 'FreelancerController@destroy')->name('freelancers.delete');
+    Route::get('/profile/edit', 'FreelancerController@edit')->name('freelancers.edit');
+    Route::patch('/profile', 'FreelancerController@update')->name('freelancers.update');
     
 });
 

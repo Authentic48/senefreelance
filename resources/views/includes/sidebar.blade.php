@@ -43,7 +43,7 @@
                 @endif
                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                 <li>
-                    <a href="{{ route('profile')}}">
+                    <a href="{{ route('freelancers.edit')}}">
                         <i class="ti-briefcase"></i>
                         <span>Mon profile</span>
                     </a>
