@@ -87,7 +87,7 @@ class FreelancerController extends Controller
             $freelancer->image = $filePath;
         }
         $freelancer->save();
-        return redirect()->back()->with(['status' => 'profile creer avec succes.']);
+        return redirect()->route('freelancers')->with(['status' => 'profile creer avec succes.']);
     }
 
     /**
@@ -162,7 +162,7 @@ class FreelancerController extends Controller
             $freelancer->image = $filePath;
         }
         $freelancer->save();
-        return redirect()->back()->with(['status' => 'profile modifier avec succes.']);
+        return redirect()->route('freelancers')->with(['status' => 'profile modifier avec succes.']);
     }
 
     /**
