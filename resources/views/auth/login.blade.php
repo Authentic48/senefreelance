@@ -52,7 +52,7 @@
                         <div class="form-group row wt-btnarea">
                             <div class="col-md-8 offset-md-2">
                                 <button type="submit" class="wt-btn">
-                                    {{ __('Login') }}
+                                    Se connecter
                                 </button>
 
                                 @if (Route::has('password.request'))
@@ -68,6 +68,5 @@
         </div>
     </div>
 </div>
-
 @endsection
 

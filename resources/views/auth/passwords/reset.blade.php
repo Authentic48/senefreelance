@@ -1,7 +1,69 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
+@if (session('status'))
+<div class="alert alert-success" role="alert">
+    {{ session('status') }}
+</div>
+@endif
 <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-md-8 offset-md-2">
+                        <h2>Mot de Passe</h2>
+                    </div>
+                    <form method="POST" action="{{ route('password.update') }}">
+                        @csrf
+                        <input type="hidden" name="token" value="{{ $token }}">
+                        <div class="form-group">
+                            <div class="col-md-8 offset-md-2">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" placeholder="Email" autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 offset-md-2">
+                                <input  type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Email">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 offset-md-2">
+                                <input  type="password" type="password" class="form-control" name="password_confirmation" placeholder="Email">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row wt-btnarea">
+                            <div class="col-md-8 offset-md-2">
+                                <button type="submit" class="wt-btn">
+                                    Envoyer
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -62,4 +124,3 @@
         </div>
     </div>
 </div>
-@endsection
