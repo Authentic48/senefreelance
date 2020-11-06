@@ -45,7 +45,6 @@ class FreelancerController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->All()); 
         $messages = 
         [
           'required' => 'Ce champ est obligatoire.',
@@ -63,7 +62,7 @@ class FreelancerController extends Controller
             'image' => ['required','mimes:jpeg,png,jpg,gif|max:2048'],
         ],$messages);
 
-        //dd($request->All());
+        
         $freelancer = New Freelancer();
         $freelancer->name = $request->name;
         $freelancer->email = $request->email;

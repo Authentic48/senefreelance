@@ -61,6 +61,12 @@ Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->g
     Route::patch('/competences/{id}', 'SkillController@update')->name('skills.update');
     Route::delete('/competences/{id}', 'SkillController@destroy')->name('skills.delete');
     Route::get('/competences', 'SkillController@index')->name('competences');
+    Route::get('/experiences/create', 'ExperienceController@create')->name('experiences.create');
+    Route::post('/experiences', 'ExperienceController@store')->name('experiences.store');
+    Route::get('/experiences/{id}/edit', 'ExperienceController@edit')->name('experiences.edit');
+    Route::patch('/experiences/{id}', 'ExperienceController@update')->name('experiences.update');
+    Route::delete('/experiences/{id}', 'ExperienceController@destroy')->name('experiences.delete');
+    Route::get('/experiences', 'ExperienceController@index')->name('experiences');
     
 });
 

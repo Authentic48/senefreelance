@@ -112,11 +112,6 @@
                                                 <li><span><i class="far fa-calendar"></i> Aug 2017 - Till Now</span>
                                                 </li>
                                             </ul>
-                                            <div class="wt-description">
-                                                <p>“ Consectetur adipisicing elit sed do eiusmod tempor incididunt ut
-                                                    labore et dolore magna aliquaenim ad minim veniamac quis nostrud
-                                                    exercitation ullamco laboris. ”</p>
-                                            </div>
                                         </div>
                                     </div>
                                    
@@ -138,11 +133,6 @@
                                                 <li><span><i class="far fa-calendar"></i> Aug 2017 - Till Now</span>
                                                 </li>
                                             </ul>
-                                            <div class="wt-description">
-                                                <p>“ Consectetur adipisicing elit sed do eiusmod tempor incididunt ut
-                                                    labore et dolore magna aliquaenim ad minim veniamac quis nostrud
-                                                    exercitation ullamco laboris. ”</p>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="divheight"></div>

@@ -61,6 +61,13 @@
                                                     </a>
                                                 </li>
                                                 @endif
+                                                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                                                <li>
+                                                    <a href="{{ route('experiences.create') }}">
+                                                        <span>Ajouter mon experience</span>
+                                                    </a>
+                                                </li>
+                                                @endif
                                                 <li>
                                                     <a href="{{ route('profile')}}">
                                                         <span>Parametres</span>

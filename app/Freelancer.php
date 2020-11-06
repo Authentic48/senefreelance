@@ -8,19 +8,24 @@ class Freelancer extends Model
 {
     protected $guarded = [];
 
-    public function user()
-    {
-      return $this->belongsTo('App\User');
-    }
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
 
-    public function getRouteKeyName()
-    {
-      return 'ref';
-    }
+  public function getRouteKeyName()
+  {
+    return 'ref';
+  }
 
-    public function skills()
-    {
-      return $this->hasMany('App\Skill');
-    }
+  public function skills()
+  {
+    return $this->hasMany('App\Skill');
+  }
+
+  public function experiences()
+  {
+    return $this->hasMany('App\Experience');
+  }
 
 }
