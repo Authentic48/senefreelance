@@ -28,4 +28,9 @@ class Freelancer extends Model
     return $this->hasMany('App\Experience');
   }
 
+  public function educations()
+  {
+    return $this->hasMany('App\Education');
+  }
+
 }

@@ -31,21 +31,6 @@ Route::patch('/profile', 'ProfileController@update')->name('profile.update');
 Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(function () {
     
     Route::get('/', 'HomeController@index')->name('admin');
-    Route::get('/categories', 'CategoryController@index')->name('categories');
-    Route::post('/categories', 'CategoryController@store')->name('categories.store');
-    Route::get('/categories/{id}/edit', 'CategoryController@edit')->name('categories.edit');
-    Route::patch('/categories/{id}', 'CategoryController@update')->name('categories.update');
-    Route::delete('/categories/{id}', 'CategoryController@destroy')->name('categories.delete');
-    Route::post('/subcategories', 'SubcategoryController@store')->name('subcategories.store');
-    Route::get('/subcategories', 'SubcategoryController@create')->name('subcategories.create');
-    Route::get('/subcategories/{id}/edit', 'SubcategoryController@edit')->name('subcategories.edit');
-    Route::patch('/subcategories/{id}', 'SubcategoryController@update')->name('subcategories.update');
-    Route::delete('/subcategories/{id}', 'SubcategoryController@destroy')->name('subcategories.delete');
-    Route::get('/formations', 'FormationController@index')->name('formations');
-    Route::post('/formations', 'FormationController@store')->name('formations.store');
-    Route::get('/formations/{id}/edit', 'FormationController@edit')->name('formations.edit');
-    Route::patch('/formations/{id}', 'FormationController@update')->name('formations.update');
-    Route::delete('/formations/{id}', 'FormationController@destroy')->name('formations.delete');
    
 });
 
@@ -67,6 +52,12 @@ Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->g
     Route::patch('/experiences/{id}', 'ExperienceController@update')->name('experiences.update');
     Route::delete('/experiences/{id}', 'ExperienceController@destroy')->name('experiences.delete');
     Route::get('/experiences', 'ExperienceController@index')->name('experiences');
+    Route::get('/education/create', 'EducationController@create')->name('education.create');
+    Route::post('/education', 'EducationController@store')->name('education.store');
+    Route::get('/education/{id}/edit', 'EducationController@edit')->name('education.edit');
+    Route::patch('/education/{id}', 'EducationController@update')->name('education.update');
+    Route::delete('/education/{id}', 'EducationController@destroy')->name('education.delete');
+    Route::get('/education', 'EducationController@index')->name('education');
     
 });
 

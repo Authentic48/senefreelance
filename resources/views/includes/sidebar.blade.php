@@ -14,7 +14,7 @@
             </figure>
             <div class="wt-companysinfo">
                 @if (Auth::user()->image)
-                <figure> <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}" alt="img description"></figure>
+                <figure> <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}" alt="{{ Auth::user()->name }}"></figure>
                 @endif
                 <div class="wt-title">
                     <h2><a href="#">{{ Auth::user()->name }}</a></h2>
@@ -53,7 +53,7 @@
                 <li>
                     <a href="{{ route('skills.create')}}">
                         <i class="ti-briefcase"></i>
-                        <span>Ajouter mes competences</span>
+                        <span>Competences</span>
                     </a>
                 </li>
                 @endif
@@ -61,7 +61,15 @@
                 <li>
                     <a href="{{ route('experiences.create')}}">
                         <i class="ti-briefcase"></i>
-                        <span>Ajouter mon experience</span>
+                        <span>Experiences</span>
+                    </a>
+                </li>
+                @endif
+                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                <li>
+                    <a href="{{ route('education.create')}}">
+                        <i class="ti-briefcase"></i>
+                        <span>Education</span>
                     </a>
                 </li>
                 @endif
@@ -71,26 +79,6 @@
                         <span>Parametres</span>
                     </a>
                 </li>
-                @if (Auth::user()->hasRole('admin'))
-                <li>
-                    <a href="{{ route('categories') }}">
-                        <i class="ti-briefcase"></i>
-                        <span>Categories</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('formations') }}">
-                        <i class="ti-briefcase"></i>
-                        <span>Formations</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('regions') }}">
-                        <i class="ti-briefcase"></i>
-                        <span>Regions</span>
-                    </a>
-                </li>
-                @endif
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="ti-shift-right"></i>

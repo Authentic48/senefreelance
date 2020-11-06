@@ -51,93 +51,55 @@
                 <div id="wt-twocolumns" class="wt-twocolumns wt-haslayout">
                     <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 float-left">
                         <div class="wt-usersingle">
-                            <div class="wt-clientfeedback">
-                                <div class="wt-usertitle wt-titlewithselect">
-                                    <h2>Client Feedback</h2>
-                                    <div class="form-group">
-                                        <span class="wt-select">
-                                            <select>
-                                                <option value="Show All">Show All</option>
-                                                <option value="One Page">One Page </option>
-                                                <option value="Two Page">Two Page</option>
-                                            </select>
-                                        </span>
+                            
+                           @if ($freelancer->educations->count() != 0)
+                           <div class="wt-experience">
+                            <div class="wt-usertitle">
+                                <h2>Education</h2>
+                            </div>
+                            <div class="wt-experiencelisting-hold">
+                                @foreach ($freelancer->educations as $education)
+                                <div class="wt-experiencelisting wt-bgcolor">
+                                    <div class="wt-title">
+                                        <h3>{{ $education->diploma }}</h3>
+                                    </div>
+                                    <div class="wt-experiencecontent">
+                                        <ul class="wt-userlisting-breadcrumb">
+                                            <li><span><i class="far fa-building"></i> {{ $education->school }}</span></li>
+                                            <li><span><i class="far fa-calendar"></i> {{ $education->from }} - {{ $education->to }}</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="wt-userlistinghold wt-userlistingsingle wt-bgcolor">
-                                    <figure class="wt-userlistingimg">
-                                        <img src="images/client/img-03.jpg" alt="image description">
-                                    </figure>
-                                    <div class="wt-userlistingcontent">
-                                        <div class="wt-contenthead">
-                                            <div class="wt-title">
-                                                <a href="javascript:void(0);"><i class="fa fa-check-circle"></i>
-                                                    Photodune Professionals</a>
-                                                <h3>Blog Post Writing in English Language</h3>
-                                            </div>
-                                            <ul class="wt-userlisting-breadcrumb">
-                                                <li><span><i class="fa fa-dollar-sign"></i><i
-                                                            class="fa fa-dollar-sign"></i><i
-                                                            class="fa fa-dollar-sign"></i> Professional</span></li>
-                                                <li><span><img src="images/flag/img-02.png" alt="img description">
-                                                        United States</span></li>
-                                                <li><span><i class="far fa-calendar"></i> Jun 2017</span></li>
-                                                <li><span class="wt-stars"><span></span></span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="wt-description">
-                                        <p>“ Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et
-                                            dolore magna aliquaenim ad minim veniamac quis nostrud exercitation ullamco
-                                            laboris. ”</p>
-                                    </div>
+                                <div class="divheight"></div>
+                                @endforeach
+                            </div>
+                        </div>
+                           @endif
+                         @if ($freelancer->experiences->count() != 0)
+                         <div class="wt-experience wt-education">
+                            <div class="wt-usertitle">
+                                <h2>Experience</h2>
+                            </div>
+                            <div class="wt-experiencelisting-hold">
+                               @foreach ($freelancer->experiences as $experience)
+                               <div class="wt-experiencelisting wt-bgcolor">
+                                <div class="wt-title">
+                                    <h3>{{ $experience->company }}</h3>
                                 </div>
-                                <div class="wt-btnarea">
-                                    <a href="javascript:void(0);" class="wt-btn">Load More</a>
+                                <div class="wt-experiencecontent">
+                                    <ul class="wt-userlisting-breadcrumb">
+                                        <li><span><i class="far fa-building"></i> {{ $experience->position }}</span></li>
+                                        <li><span><i class="far fa-calendar"></i> {{ $experience->from }} - {{ $experience->to }}</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                           
-                            <div class="wt-experience">
-                                <div class="wt-usertitle">
-                                    <h2>Experience</h2>
-                                </div>
-                                <div class="wt-experiencelisting-hold">
-                                    <div class="wt-experiencelisting wt-bgcolor">
-                                        <div class="wt-title">
-                                            <h3>Web &amp; Apps Project Manager</h3>
-                                        </div>
-                                        <div class="wt-experiencecontent">
-                                            <ul class="wt-userlisting-breadcrumb">
-                                                <li><span><i class="far fa-building"></i> Amento Tech</span></li>
-                                                <li><span><i class="far fa-calendar"></i> Aug 2017 - Till Now</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="divheight"></div>
-                                </div>
+                            <div class="divheight"></div>
+                               @endforeach 
                             </div>
-                            <div class="wt-experience wt-education">
-                                <div class="wt-usertitle">
-                                    <h2>Education</h2>
-                                </div>
-                                <div class="wt-experiencelisting-hold">
-                                    <div class="wt-experiencelisting wt-bgcolor">
-                                        <div class="wt-title">
-                                            <h3>Web &amp; Apps Project Manager</h3>
-                                        </div>
-                                        <div class="wt-experiencecontent">
-                                            <ul class="wt-userlisting-breadcrumb">
-                                                <li><span><i class="far fa-building"></i> Amento Tech</span></li>
-                                                <li><span><i class="far fa-calendar"></i> Aug 2017 - Till Now</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="divheight"></div>
-                                </div>
-                            </div>
+                        </div>
+                         @endif
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 float-left">
@@ -161,7 +123,7 @@
                            @endif
                             <div class="wt-widget wt-reportjob">
                                 <div class="wt-widgettitle">
-                                    <h2>Report This User</h2>
+                                    <h2>Signaler cet utilisateur</h2>
                                 </div>
                                 <div class="wt-widgetcontent">
                                     <form class="wt-formtheme wt-formreport">
@@ -181,7 +143,7 @@
                                                 <textarea class="form-control" placeholder="Description"></textarea>
                                             </div>
                                             <div class="form-group wt-btnarea">
-                                                <a href="javascrip:void(0);" class="wt-btn">Submit</a>
+                                                <a href="javascrip:void(0);" class="wt-btn">Envoyer</a>
                                             </div>
                                         </fieldset>
                                     </form>
