@@ -10,11 +10,17 @@ class Freelancer extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+      return $this->belongsTo('App\User');
     }
 
     public function getRouteKeyName()
     {
       return 'ref';
     }
+
+    public function skills()
+    {
+      return $this->hasMany('App\Skill');
+    }
+
 }

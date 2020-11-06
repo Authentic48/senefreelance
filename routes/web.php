@@ -55,6 +55,12 @@ Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->g
     Route::post('/freelancers', 'FreelancerController@store')->name('freelancers.store');
     Route::get('/profile/edit', 'FreelancerController@edit')->name('freelancers.edit');
     Route::patch('/profile', 'FreelancerController@update')->name('freelancers.update');
+    Route::get('/competences/create', 'SkillController@create')->name('skills.create');
+    Route::post('/competences', 'SkillController@store')->name('skills.store');
+    Route::get('/competences/{id}/edit', 'SkillController@edit')->name('skills.edit');
+    Route::patch('/competences/{id}', 'SkillController@update')->name('skills.update');
+    Route::delete('/competences/{id}', 'SkillController@destroy')->name('skills.delete');
+    Route::get('/competences', 'SkillController@index')->name('competences');
     
 });
 
