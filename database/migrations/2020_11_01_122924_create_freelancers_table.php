@@ -13,6 +13,8 @@ class CreateFreelancersTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('freelancers'))
+        {
         Schema::create('freelancers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -30,6 +32,7 @@ class CreateFreelancersTable extends Migration
             $table->string('status');
             $table->timestamps();
         });
+        }
     }
 
     /**

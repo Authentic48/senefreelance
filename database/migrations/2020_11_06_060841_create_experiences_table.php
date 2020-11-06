@@ -13,6 +13,8 @@ class CreateExperiencesTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('experiences'))
+        {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
             $table->string('company');
@@ -22,6 +24,7 @@ class CreateExperiencesTable extends Migration
             $table->string('to');
             $table->timestamps();
         });
+        }
     }
 
     /**

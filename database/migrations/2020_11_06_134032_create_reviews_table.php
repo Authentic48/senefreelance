@@ -13,6 +13,8 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('reviews'))
+        {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -22,6 +24,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedInteger('freelancer_id');
             $table->timestamps();
         });
+         }
     }
 
     /**

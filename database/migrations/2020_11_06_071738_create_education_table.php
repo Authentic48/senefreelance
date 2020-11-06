@@ -13,6 +13,8 @@ class CreateEducationTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('education'))
+        {
         Schema::create('education', function (Blueprint $table) {
             $table->id();
             $table->string('school');
@@ -22,6 +24,7 @@ class CreateEducationTable extends Migration
             $table->string('to');
             $table->timestamps();
         });
+        }
     }
 
     /**

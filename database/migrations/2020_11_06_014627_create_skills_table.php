@@ -13,6 +13,8 @@ class CreateSkillsTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('skills'))
+        {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -20,6 +22,7 @@ class CreateSkillsTable extends Migration
             $table->string('percentage');
             $table->timestamps();
         });
+        }
     }
 
     /**

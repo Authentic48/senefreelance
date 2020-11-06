@@ -13,6 +13,8 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('reports'))
+        {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -22,6 +24,7 @@ class CreateReportsTable extends Migration
             $table->unsignedInteger('freelancer_id');
             $table->timestamps();
         });
+        }
     }
 
     /**
