@@ -21,7 +21,8 @@ Route::get('/how', 'PagesController@how')->name('how');
 
 Route::get('/freelancers', 'FreelancerController@index')->name('freelancers');
 Route::get('/freelancers/{ref}', 'FreelancerController@show')->name('freelancers.show');
-
+Route::post('/report', 'ReportController@store')->name('report.store');
+Route::post('/review', 'ReviewController@store')->name('review.store');
 
 Auth::routes();
 

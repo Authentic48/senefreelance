@@ -38,14 +38,14 @@
                                     <div class="wt-widgetcontent">
                                         <form class="wt-formtheme wt-formsearch">
                                             <fieldset>
-                                               <div class="wt-checkboxholder wt-verticalscrollbar">
-                                                @foreach ($categories as $category)
-                                                <span class="wt-checkbox">
-                                                    <input id="category" type="text" class="d-none" name="category">
-                                                    <label for="category"> {{ $category->name }}</label>
-                                                </span>
-                                                @endforeach
-                                            </div>
+                                                <div class="wt-checkboxholder wt-verticalscrollbar">
+                                                    @foreach ($categories as $category)
+                                                    <span class="wt-checkbox">
+                                                        <input id="category" type="text" class="d-none" name="category">
+                                                        <label for="category"> {{ $category->name }}</label>
+                                                    </span>
+                                                    @endforeach
+                                                </div>
                                             </fieldset>
                                         </form>
                                     </div>
@@ -59,11 +59,11 @@
                                             <fieldset>
                                                 <div class="wt-checkboxholder wt-verticalscrollbar">
                                                     @foreach ($regions as $region)
-                                                <span class="wt-checkbox">
-                                                    <input id="region" type="text" class="d-none" name="region">
-                                                    <label for="region"> {{ $region->name }}</label>
-                                                </span>
-                                                @endforeach
+                                                    <span class="wt-checkbox">
+                                                        <input id="region" type="text" class="d-none" name="region">
+                                                        <label for="region"> {{ $region->name }}</label>
+                                                    </span>
+                                                    @endforeach
                                                 </div>
                                             </fieldset>
                                         </form>
@@ -74,52 +74,39 @@
                         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 float-left">
                             @foreach ($freelancers as $freelancer)
                             <div class="wt-userlistinghold">
-                                    <figure class="wt-userlistingimg">
-                                        <img src="{{ Storage::disk('do_spaces')->url($freelancer->image) }}" alt="{{ $freelancer->name }}">
-                                    </figure>
-                                    <div class="wt-userlistingcontent">
-                                        <div class="wt-contenthead">
-                                            <div class="wt-title">
-                                                <a href="{{ route('freelancers.show', $freelancer->ref) }}"><i class="fa fa-check-circle"></i> {{ $freelancer->name }}</a>
-                                                <h2> {{ $freelancer->profession }}</h2>
-                                            </div>
-                                            <ul class="wt-userlisting-breadcrumb">
-                                                <li><span>{{ $freelancer->region }}</span></li>
-                                                <li><span>{{ $freelancer->commune }}</span></li>
-                                            </ul>
+                                <figure class="wt-userlistingimg">
+                                    <img src="{{ Storage::disk('do_spaces')->url($freelancer->image) }}"
+                                        alt="{{ $freelancer->name }}">
+                                </figure>
+                                <div class="wt-userlistingcontent">
+                                    <div class="wt-contenthead">
+                                        <div class="wt-title">
+                                            <a href="{{ route('freelancers.show', $freelancer->ref) }}"> {{ $freelancer->name }}</a>
+                                            <h2><a href="{{ route('freelancers.show', $freelancer->ref) }}"> {{ $freelancer->profession }} </a></h2>
                                         </div>
-                                    </div>
-                                    <div class="wt-description">
-                                        <p> {{ $freelancer->about }}</p>
-                                    </div>
-                                    <div class="wt-tag wt-widgettag">
-                                        <a href="#">PHP</a>
-                                        <a href="#">HTML</a>
-                                        <a href="#">JavaScript</a>
-                                        <a href="#">WordPress</a>
-                                        <a href="#">Team Management</a>
-                                        <a href="#">JQuery</a>
+                                        <ul class="wt-userlisting-breadcrumb">
+                                            <li><span>{{ $freelancer->region }}</span></li>
+                                            <li><span>{{ $freelancer->commune }}</span></li>
+                                        </ul>
                                     </div>
                                 </div>
-                            @endforeach
-                                <nav class="wt-pagination mt-5">
-                                    <ul>
-                                        <li class="wt-prevpage"><a href="javascrip:void(0);"><i class="lnr lnr-chevron-left"></i></a></li>
-                                        <li><a href="javascrip:void(0);">1</a></li>
-                                        <li><a href="javascrip:void(0);">2</a></li>
-                                        <li><a href="javascrip:void(0);">3</a></li>
-                                        <li><a href="javascrip:void(0);">4</a></li>
-                                        <li><a href="javascrip:void(0);">...</a></li>
-                                        <li><a href="javascrip:void(0);">50</a></li>
-                                        <li class="wt-nextpage"><a href="javascrip:void(0);"><i class="lnr lnr-chevron-right"></i></a></li>
-                                    </ul>
-                                </nav>
+                                <div class="wt-description">
+                                    <p> {{ $freelancer->about }}</p>
+                                </div>
+                                <div class="wt-tag wt-widgettag">
+                                    @foreach ($freelancer->skills as $skill)
+                                    <a href="#">{{ $skill->name }}</a>
+                                    @endforeach
+                                </div>
                             </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </main>
 @endsection

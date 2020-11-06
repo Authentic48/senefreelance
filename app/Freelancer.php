@@ -33,4 +33,14 @@ class Freelancer extends Model
     return $this->hasMany('App\Education');
   }
 
+  public function reports()
+  {
+    return $this->hasMany('App\Report');
+  }
+
+  public function reviews()
+  {
+    return $this->hasMany('App\Review');
+  }
+
 }

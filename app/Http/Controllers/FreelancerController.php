@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Category;
 use App\Region;
+use App\Report;
 
 class FreelancerController extends Controller
 {
@@ -109,7 +110,6 @@ class FreelancerController extends Controller
      */
     public function edit()
     {
-        //dd();
         $categories = Category::All();
         $regions = Region::All();
         $freelancer = Freelancer::where('user_id', Auth::user()->id)->first();
