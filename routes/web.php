@@ -20,9 +20,12 @@ Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/how', 'PagesController@how')->name('how');
 
 Route::get('/freelancers', 'FreelancerController@index')->name('freelancers');
-Route::get('/freelancers/{ref}', 'FreelancerController@show')->name('freelancers.show');
+Route::get('/freelancers/{freelancer_ref}', 'FreelancerController@show')->name('freelancers.show');
 Route::post('/report', 'ReportController@store')->name('report.store');
 Route::post('/review', 'ReviewController@store')->name('review.store');
+Route::get('/freelancers/categorie/{freelancer_category}', 'FreelancerController@filterByCategory')->name('freelancers.category');
+Route::get('/freelancers/region/{freelancer_region}', 'FreelancerController@filterByRegion')->name('freelancers.region');
+
 
 Auth::routes();
 

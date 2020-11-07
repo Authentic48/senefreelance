@@ -32,7 +32,6 @@
                                             <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}"
                                                 alt="{{ Auth::user()->name }}">
                                             @endif
-                                            
                                         </figure>
                                         <div class="wt-username">
                                             <h3>{{ Auth::user()->name }}</h3>

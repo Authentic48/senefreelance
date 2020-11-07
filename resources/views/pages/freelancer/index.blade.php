@@ -41,8 +41,7 @@
                                                 <div class="wt-checkboxholder wt-verticalscrollbar">
                                                     @foreach ($categories as $category)
                                                     <span class="wt-checkbox">
-                                                        <input id="category" type="text" class="d-none" name="category">
-                                                        <label for="category"> {{ $category->name }}</label>
+                                                        <a href="{{ route('freelancers.category', $category->name) }}">{{ $category->name }}</a>
                                                     </span>
                                                     @endforeach
                                                 </div>
@@ -60,8 +59,7 @@
                                                 <div class="wt-checkboxholder wt-verticalscrollbar">
                                                     @foreach ($regions as $region)
                                                     <span class="wt-checkbox">
-                                                        <input id="region" type="text" class="d-none" name="region">
-                                                        <label for="region"> {{ $region->name }}</label>
+                                                        <a href="{{ route('freelancers.region', $region->name) }}">{{ $region->name }}</a>
                                                     </span>
                                                     @endforeach
                                                 </div>

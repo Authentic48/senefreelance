@@ -15,7 +15,7 @@ class Freelancer extends Model
 
   public function getRouteKeyName()
   {
-    return 'ref';
+    return ['freelancer_ref' => 'ref', 'freelancer_category' =>'category', 'freelancer_region' => 'region'];
   }
 
   public function skills()
@@ -43,5 +43,4 @@ class Freelancer extends Model
     return $this->hasMany('App\Review');
   }
   
-
 }

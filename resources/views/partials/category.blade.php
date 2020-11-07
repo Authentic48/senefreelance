@@ -19,7 +19,7 @@
                             </div>
                             <div class="wt-categoryslidup">
                                 <p>Retrouvez tous les professionels de cette categorie.</p>
-                                <a href="javascript:void(0);">Explorez<i class="fa fa-arrow-right"></i></a>
+                                <a href="{{ route('freelancers.category', $category->name) }}">Explorez<i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>

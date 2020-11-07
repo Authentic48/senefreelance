@@ -175,4 +175,32 @@ class FreelancerController extends Controller
     {
         //
     }
+
+    /**
+     * Filter the specified resource from storage.
+     *
+     * @param  int  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function filterByCategory($freelancer_category)
+    {
+        $freelancers = Freelancer::where('category', $freelancer_category)->paginate(10);
+        $categories = Category::All();
+        $regions = Region::All();
+        return view('pages.freelancer.index', compact('freelancers','regions','categories'));
+    }
+
+    /**
+     * Filter the specified resource from storage.
+     *
+     * @param  int  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function filterByRegion($freelancer_region)
+    {
+        $freelancers = Freelancer::where('region', $freelancer_region)->paginate(10);
+        $categories = Category::All();
+        $regions = Region::All();
+        return view('pages.freelancer.index', compact('freelancers','regions','categories'));
+    }
 }

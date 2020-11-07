@@ -22,15 +22,6 @@
                             <div class="form-group">
                                 <input type="text" name="fullname" class="form-control" placeholder="Rechercher......">
                                 <div class="wt-formoptions">
-                                    <div class="wt-dropdown">
-                                        <span><em class="selected-search-type">Freelancers </em><i class="lnr lnr-chevron-down"></i></span>
-                                    </div>
-                                    <div class="wt-radioholder">
-                                        <span class="wt-radio">
-                                            <input id="wt-freelancers" data-title="Freelancers" type="radio" name="searchtype" value="freelancer" checked>
-                                            <label for="wt-freelancers">Freelancers</label>
-                                        </span>
-                                    </div>
                                     <a href="#" class="wt-searchbtn"><i class="lnr lnr-magnifier"></i></a>
                                 </div>
                             </div>

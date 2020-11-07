@@ -15,7 +15,6 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.4",
-        "laravolt/avatar": "^4.0",
         "league/flysystem-aws-s3-v3": "^1.0"
     },
     "require-dev": {
