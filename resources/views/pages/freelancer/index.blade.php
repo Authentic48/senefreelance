@@ -99,6 +99,11 @@
                             </div>
                             @endforeach
 
+                            @if ($freelancers->count() == 0)
+                            <div class="wt-userlistinghold">
+                                <h2>Recherche Introuvable !!!</h2>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

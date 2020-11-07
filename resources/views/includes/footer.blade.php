@@ -21,7 +21,7 @@
                         </div>
                         <ul class="wt-fwidgetcontent">
                             <li><a href="{{ route('about') }}">Qui sommes-nous ?</a></li>
-                            <li><a href="#">Comment Ça Marche ?</a></li>
+                            <li><a href="{{ route('how') }}">Comment Ça Marche ?</a></li>
                         </ul>
                     </div>
                 </div>
