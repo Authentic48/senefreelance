@@ -27,6 +27,7 @@
                                 <div class="wt-tabscontenttitle">
                                     <h2>Mon Experience</h2>
                                 </div>
+                                    <a href="{{ route('experiences.create') }}" class="wt-btn">Ajouter</a>
                                 <div class="wt-myskills">
                                     <ul class="sortable list">
                                         @foreach ($experiences as $experience)

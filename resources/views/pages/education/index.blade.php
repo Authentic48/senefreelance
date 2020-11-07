@@ -19,14 +19,15 @@
             <div class="wt-haslayout wt-dbsectionspace">
                 <div class="wt-dashboardbox wt-dashboardtabsholder">
                     <div class="wt-dashboardboxtitle">
-                        <h2>Experience</h2>
+                        <h2>Education</h2>
                     </div>
                     <div class="wt-tabscontent tab-content">
                         <div class="wt-personalskillshold tab-pane active fade show">
                             <div class="wt-yourdetails wt-tabsinfo">
                                 <div class="wt-tabscontenttitle">
-                                    <h2>Mon Experience</h2>
+                                    <h2>Ajouter votre parcours academique</h2>
                                 </div>
+                                <a href="{{ route('experiences.create') }}" class="wt-btn">Ajouter</a>
                                 <div class="wt-myskills">
                                     <ul class="sortable list">
                                         @foreach ($educations as $education)

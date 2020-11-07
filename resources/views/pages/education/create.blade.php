@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="form-group form-group-half">
                                             <input type="text" class="form-control @error('from') is-invalid @enderror"
-                                                placeholder="De" name="from"
+                                                placeholder="Mars 2013" name="from"
                                                 value="{{ old('from') }}">
                                             @error('from')
                                             <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                                         <div class="form-group form-group-half">
                                             <input type="text"
                                                 class="form-control @error('to') is-invalid @enderror" name="to"
-                                                value="{{ old('to') }}" placeholder="A">
+                                                value="{{ old('to') }}" placeholder="Mai 2016">
                                             @error('to')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

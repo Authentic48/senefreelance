@@ -27,6 +27,7 @@
                                 <div class="wt-tabscontenttitle">
                                     <h2>Vos Competences</h2>
                                 </div>
+                                    <a href="{{ route('skills.create') }}" class="wt-btn">Ajouter</a>
                                 <div class="wt-myskills">
                                     <ul class="sortable list">
                                         @foreach ($skills as $skill)

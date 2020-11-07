@@ -51,7 +51,7 @@
                 @endif
                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                 <li>
-                    <a href="{{ route('skills.create')}}">
+                    <a href="{{ route('competences')}}">
                         <i class="ti-briefcase"></i>
                         <span>Competences</span>
                     </a>
@@ -59,7 +59,7 @@
                 @endif
                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                 <li>
-                    <a href="{{ route('experiences.create')}}">
+                    <a href="{{ route('experiences')}}">
                         <i class="ti-briefcase"></i>
                         <span>Experiences</span>
                     </a>
@@ -67,7 +67,7 @@
                 @endif
                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                 <li>
-                    <a href="{{ route('education.create')}}">
+                    <a href="{{ route('education')}}">
                         <i class="ti-briefcase"></i>
                         <span>Education</span>
                     </a>

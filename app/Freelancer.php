@@ -42,5 +42,6 @@ class Freelancer extends Model
   {
     return $this->hasMany('App\Review');
   }
+  
 
 }

@@ -56,21 +56,21 @@
                                                 @endif
                                                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
-                                                    <a href="{{ route('skills.create') }}">
+                                                    <a href="{{ route('competences') }}">
                                                         <span>Competences</span>
                                                     </a>
                                                 </li>
                                                 @endif
                                                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
-                                                    <a href="{{ route('experiences.create') }}">
+                                                    <a href="{{ route('experiences') }}">
                                                         <span>Experiences</span>
                                                     </a>
                                                 </li>
                                                 @endif
                                                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
-                                                    <a href="{{ route('education.create') }}">
+                                                    <a href="{{ route('education') }}">
                                                         <span>Education</span>
                                                     </a>
                                                 </li>

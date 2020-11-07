@@ -44,7 +44,7 @@
                                         <div class="form-group form-group-half">
                                             <input type="text"
                                                 class="form-control @error('percentage') is-invalid @enderror" name="percentage"
-                                                value="{{ old('percentage') }}" placeholder="percentage">
+                                                value="{{ old('percentage') }}" placeholder="80%">
                                             @error('percentage')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
