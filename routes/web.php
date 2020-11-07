@@ -66,5 +66,11 @@ Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->g
 Route::middleware(['auth'])->middleware(['manager'])->prefix('manager')->group(function () {
     
     Route::get('/', 'HomeController@index')->name('manager');
+    Route::get('/users', 'UserController@index')->name('manager.users');
+    Route::get('/users/create', 'UserController@create')->name('manager.users.create');
+    Route::post('/users', 'UserController@store')->name('manager.users.store');
+    Route::get('/users/{ref}', 'UserController@edit')->name('manager.users.edit');
+    Route::patch('/users/{ref}', 'UserController@update')->name('manager.users.update');
+    Route::delete('/users/{ref}', 'UserController@destroy')->name('manager.users.delete');
 });
 

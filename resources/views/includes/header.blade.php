@@ -47,28 +47,39 @@
                                                     </a>
                                                 </li>
                                                 @endif
-                                                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                                                @if (Auth::user()->hasRole('manager'))
+                                                <li>
+                                                    <a href="{{ route('manager.users')}}">
+                                                        <span>Utilisateurs</span>
+                                                    </a>
+                                                </li>
+                                                @endif
+                                                @if (Auth::user()->hasRole('freelancer') &&
+                                                Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
                                                     <a href="{{ route('freelancers.edit') }}">
                                                         <span>Mon profile</span>
                                                     </a>
                                                 </li>
                                                 @endif
-                                                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                                                @if (Auth::user()->hasRole('freelancer') &&
+                                                Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
                                                     <a href="{{ route('competences') }}">
                                                         <span>Competences</span>
                                                     </a>
                                                 </li>
                                                 @endif
-                                                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                                                @if (Auth::user()->hasRole('freelancer') &&
+                                                Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
                                                     <a href="{{ route('experiences') }}">
                                                         <span>Experiences</span>
                                                     </a>
                                                 </li>
                                                 @endif
-                                                @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
+                                                @if (Auth::user()->hasRole('freelancer') &&
+                                                Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
                                                     <a href="{{ route('education') }}">
                                                         <span>Education</span>

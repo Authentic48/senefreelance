@@ -14,18 +14,19 @@
             </figure>
             <div class="wt-companysinfo">
                 @if (Auth::user()->image)
-                <figure> <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}" alt="{{ Auth::user()->name }}"></figure>
+                <figure> <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}"
+                        alt="{{ Auth::user()->name }}"></figure>
                 @endif
                 <div class="wt-title">
                     <h2><a href="#">{{ Auth::user()->name }}</a></h2>
                     @if (Auth::user()->hasRole('freelencer'))
-                     <span>Freelancer</span>
+                    <span>Freelancer</span>
                     @endif
                     @if (Auth::user()->hasRole('admin'))
-                     <span>Admin</span>
+                    <span>Admin</span>
                     @endif
                     @if (Auth::user()->hasRole('manager'))
-                     <span>Manager</span>
+                    <span>Manager</span>
                     @endif
                 </div>
             </div>
@@ -65,6 +66,14 @@
                     </a>
                 </li>
                 @endif
+                @if (Auth::user()->hasRole('manager'))
+                <li>
+                    <a href="{{ route('manager.users')}}">
+                        <i class="ti-briefcase"></i>
+                        <span>Utilisateurs</span>
+                    </a>
+                </li>
+                @endif
                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                 <li>
                     <a href="{{ route('education')}}">
@@ -80,7 +89,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="ti-shift-right"></i>
                         <span>Se deconnecter</span>
                     </a>

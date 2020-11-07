@@ -56,4 +56,10 @@ class User extends Authenticatable
     {
         return null !== $this->freelancer()->where('user_id', $user_id)->first();
     }
+
+    public function getRouteKeyName()
+    {
+        return 'ref';
+    }
+
 }

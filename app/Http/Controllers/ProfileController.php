@@ -44,7 +44,7 @@ class ProfileController extends Controller
             $user->image = $filePath;
         }
         $user->save();
-        return redirect()->back()->with(['status' => 'profile modifier avec succes.']);
+        return redirect()->back()->with(['status' => 'Compte modifier avec succes.']);
 
     }
 }

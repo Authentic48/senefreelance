@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 
 class UserController extends Controller
 {
@@ -14,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::paginate(20);
+        return view('pages.manager.user.index', compact('users'));
     }
 
     /**
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manager.user.create');
     }
 
     /**
@@ -35,7 +37,39 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = 
+        [
+          'required' => 'Ce champ est obligatoire.',
+        ];
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ], $messages);
+    
+        
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->ref = substr(number_format(time() * rand(),0,'',''),0,7);
+        $user->save();
+        
+        $role = 'freelancer';
+        $userRole = Role::where('name', $role)->first();
+        $user->roles()->attach($userRole);
+        
+        if($request->has('image'))
+        {
+            $image = $request->file('image');
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = '/images'; 
+            $filePath = Storage::disk('do_spaces')->putFileAs($folder, $image, $name, 'public');
+            $user->image = $filePath;
+        }
+        $user->save();
+        return redirect()->route('manager.users')->with(['status' => 'Compte creer avec succes']);
     }
 
     /**
@@ -55,10 +89,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($ref)
     {
-        $user = User::where('id', $id)->first();
-        return view('pages.profile.edit', compact('user'));
+        $user = User::where('ref', $ref)->first();
+        return view('pages.manager.user.edit', compact('user'));
     }
 
     /**
@@ -68,7 +102,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $ref)
     {
         $messages = 
         [
@@ -82,7 +116,7 @@ class UserController extends Controller
         ], $messages);
     
         
-        $user = User::where('id', $id)->first();
+        $user = User::where('ref', $ref)->first();
         $user->name = $request->name;
         $user->email = $request->email;
 
@@ -93,16 +127,14 @@ class UserController extends Controller
         
         if($request->has('image'))
         {
-            $img = $request->file('profile_image');
-            $name = Str::slug($request->name).'_'.time();
-            $folder = '/uploads/images/';
-                //dd($folder);
-            $filePath = $folder . $name. '.' .$img->getClientOriginalExtension();
-            $this->uploadOne($img, $folder, 'public', $name);
-            $user->profile_image = $filePath;
+            $image = $request->file('image');
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = '/images'; 
+            $filePath = Storage::disk('do_spaces')->putFileAs($folder, $image, $name, 'public');
+            $user->image = $filePath;
         }
         $user->save();
-        return redirect()->route('home')->with(['status' => 'profile modifier avec succes']);
+        return redirect()->route('manager.users')->with(['status' => 'Compte modifier avec succes']);
     }
 
     /**
@@ -111,8 +143,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($ref)
     {
-        //
+        $user = User::where('ref', $ref)->first();
+        $user->delete();
+        
+        return redirect()->route('manager.users')->with(['status' => 'Compte supprimer avec succes']);
     }
 }

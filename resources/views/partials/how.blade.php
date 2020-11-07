@@ -1,4 +1,3 @@
-<!--Inner Home Banner Start-->
 <div class="wt-haslayout wt-innerbannerholder">
     <div class="container">
         <div class="row justify-content-md-center">
@@ -14,10 +13,7 @@
         </div>
     </div>
 </div>
-<!--Inner Home End-->
-<!--Main Start-->
 <main id="wt-main" class="wt-main wt-haslayout wt-innerbgcolor">
-    <!--Categories Start-->
     <div class="wt-haslayout wt-main-section">
         <div class="wt-contentwrappers">
             <div class="container">
@@ -92,5 +88,4 @@
             </div>
         </div>
     </div>
-    <!--Limitless Experience End-->
 </main>
