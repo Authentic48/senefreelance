@@ -30,7 +30,11 @@
                                         <figure class="wt-userimg">
                                             @if (Auth::user()->image)
                                             <img src="{{ Storage::disk('do_spaces')->url(Auth::user()->image) }}"
-                                                alt="profile">
+                                                alt="{{ Auth::user()->name }}">
+                                            @endif
+                                            @if (!Auth::user()->image)
+                                            <img src="{{ Avatar::create(Auth::user()->name)->save('sample.jpg', 100) }}"
+                                                alt="{{ Auth::user()->name }}">
                                             @endif
                                         </figure>
                                         <div class="wt-username">
