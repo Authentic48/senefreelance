@@ -72,5 +72,11 @@ Route::middleware(['auth'])->middleware(['manager'])->prefix('manager')->group(f
     Route::get('/users/{ref}', 'UserController@edit')->name('manager.users.edit');
     Route::patch('/users/{ref}', 'UserController@update')->name('manager.users.update');
     Route::delete('/users/{ref}', 'UserController@destroy')->name('manager.users.delete');
+    Route::get('/freelancers', 'ManFreelancerController@index')->name('manager.freelancers');
+    Route::get('/freelancers/{ref}', 'ManFreelancerController@edit')->name('manager.freelancers.edit');
+    Route::patch('/freelancers/{ref}', 'ManFreelancerController@update')->name('manager.freelancers.update');
+    Route::delete('/freelancers/{ref}', 'ManFreelancerController@destroy')->name('manager.freelancers.delete');
+    Route::get('/freelancer/{ref}', 'ManFreelancerController@show')->name('manager.freelancers.show');
+
 });
 

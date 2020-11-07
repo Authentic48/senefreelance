@@ -54,6 +54,13 @@
                                                     </a>
                                                 </li>
                                                 @endif
+                                                @if (Auth::user()->hasRole('manager'))
+                                                <li>
+                                                    <a href="{{ route('manager.freelancers')}}">
+                                                        <span>Freelancers</span>
+                                                    </a>
+                                                </li>
+                                                @endif
                                                 @if (Auth::user()->hasRole('freelancer') &&
                                                 Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>

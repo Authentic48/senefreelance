@@ -74,6 +74,14 @@
                     </a>
                 </li>
                 @endif
+                @if (Auth::user()->hasRole('manager'))
+                <li>
+                    <a href="{{ route('manager.freelancers')}}">
+                        <i class="ti-briefcase"></i>
+                        <span>Freelancers</span>
+                    </a>
+                </li>
+                @endif
                 @if (Auth::user()->hasRole('freelancer') && Auth::user()->hasFreelancerAccount(Auth::user()->id))
                 <li>
                     <a href="{{ route('education')}}">

@@ -29,9 +29,7 @@
                                     </figure>
                                     <div class="wt-title">
                                         <h3>{{ $freelancer->name }}</h3>
-                                        <span>{{ $freelancer->email }}<br>{{ $freelancer->phone }}<br> <a href="#"
-                                                data-toggle="modal" data-target="#reviewermodal">Feedback</a> <br> <a
-                                                href="#report" class="wt-reportuser">Signaler cet utilisateur</a></span>
+                                        <span>{{ $freelancer->email }}<br>{{ $freelancer->phone }}<br> <a>{{ $freelancer->user_ref }}</a> <br> <a class="wt-reportuser">{{ $freelancer->status }}</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -158,64 +156,6 @@
                                 </div>
                             </div>
                             @endif
-                            <div class="wt-widget wt-reportjob" id="report">
-                                <div class="wt-widgettitle">
-                                    <h2>Signaler cet utilisateur</h2>
-                                </div>
-                                <div class="wt-widgetcontent">
-                                    <form class="wt-formtheme wt-formreport" action="{{ route('report.store') }}"
-                                        method="POST">
-                                        @csrf
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <input type="text"
-                                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                                    value="{{ old('name') }}" placeholder="Votre nom">
-                                                @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text"
-                                                    class="form-control @error('reason') is-invalid @enderror"
-                                                    name="reason" value="{{ old('reason') }}" placeholder="Raison">
-                                                @error('reason')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text"
-                                                    class="form-control @error('email') is-invalid @enderror"
-                                                    name="email" value="{{ old('email') }}" placeholder="Email">
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea name="description"
-                                                    class="form-control @error('description') is-invalid @enderror"
-                                                    placeholder="Description">{{ old('description') }}</textarea>
-                                                @error('description')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                            <input class="d-none" type="text" name="freelancer_id"
-                                                value="{{ $freelancer->id }}">
-                                            <div class="form-group wt-btnarea">
-                                                <button type="submit" class="wt-btn">Envoyer</button>
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            </div>
                         </aside>
                     </div>
                 </div>
@@ -223,65 +163,4 @@
         </div>
     </div>
 </main>
-<!-- Popup Start-->
-<div class="modal fade wt-offerpopup" tabindex="-1" role="dialog" id="reviewermodal">
-    <div class="modal-dialog" role="document">
-        <div class="wt-modalcontent modal-content">
-            <div class="wt-popuptitle">
-                <h2>Feedback</h2>
-                <a href="javascript%3bvoid(0)%3b.html" class="wt-closebtn close"><i class="fa fa-close"
-                        data-dismiss="modal" aria-label="Close"></i></a>
-            </div>
-            <div class="modal-body">
-                <form class="wt-formtheme wt-formpopup" action="{{ route('review.store') }}" method="POST">
-                    @csrf
-                    <fieldset>
-                        <div class="form-group mb-3">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                value="{{ old('name') }}" placeholder="Nom">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" placeholder="Email">
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="text" class="form-control @error('job') is-invalid @enderror" name="job"
-                                value="{{ old('job') }}" placeholder="Travaux">
-                            @error('job')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <textarea name="description" class="form-control @error('description') is-invalid @enderror"
-                                placeholder="Description">{{ old('description') }}</textarea>
-                            @error('description')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <input class="d-none" type="text" name="freelancer_id"
-                                                value="{{ $freelancer->id }}">
-                        <div class="form-group wt-btnarea">
-                            <button type="submit" class="wt-btn">Envoyer</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Popup End-->
 @endsection

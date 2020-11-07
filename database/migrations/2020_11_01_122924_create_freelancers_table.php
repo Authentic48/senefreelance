@@ -21,6 +21,7 @@ class CreateFreelancersTable extends Migration
             $table->string('email')->nullable();
             $table->unsignedInteger('user_id');
             $table->string('region');
+            $table->unsignedBigInteger('user_ref')->unique();
             $table->string('commune');
             $table->string('ref')->unique();
             $table->text('profession');

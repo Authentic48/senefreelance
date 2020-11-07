@@ -85,6 +85,7 @@
                                         <ul class="wt-userlisting-breadcrumb">
                                             <li><span>{{ $freelancer->region }}</span></li>
                                             <li><span>{{ $freelancer->commune }}</span></li>
+                                            <li>{{ $freelancer->citizenship }}</li>
                                         </ul>
                                     </div>
                                 </div>

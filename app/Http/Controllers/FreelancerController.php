@@ -77,6 +77,7 @@ class FreelancerController extends Controller
         $freelancer->user_id = Auth::user()->id;
         $freelancer->ref = Str::random(9);
         $freelancer->status = 'visible';
+        $freelancer->user_ref = Auth::user()->ref;
 
         if ($request->has('image'))
         {
