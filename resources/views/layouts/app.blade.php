@@ -69,7 +69,7 @@
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       
-        ga('create', '182341952', 'auto');
+        ga('create', '252054001', 'auto');
         ga('send', 'pageview');
       
     </script>
