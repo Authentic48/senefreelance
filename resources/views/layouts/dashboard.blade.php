@@ -12,32 +12,31 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/scrollbar.css">
-	<link rel="stylesheet" href="/css/fontawesome/fontawesome-all.css">
-	<link rel="stylesheet" href="/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/css/themify-icons.css">
-	<link rel="stylesheet" href="/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="/css/jquery-ui.css">
-	<link rel="stylesheet" href="/css/linearicons.css">
-	<link rel="stylesheet" href="/css/tipso.css">
-	<link rel="stylesheet" href="/css/chosen.css">
-	<link rel="stylesheet" href="/css/prettyPhoto.css">
-	<link rel="stylesheet" href="/css/main.css">
-	<link rel="stylesheet" href="/css/dashboard.css">
-	<link rel="stylesheet" href="/css/color.css">
-	<link rel="stylesheet" href="/css/transitions.css">
-	<link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/scrollbar.css">
+    <link rel="stylesheet" href="/css/fontawesome/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/themify-icons.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/linearicons.css">
+    <link rel="stylesheet" href="/css/tipso.css">
+    <link rel="stylesheet" href="/css/chosen.css">
+    <link rel="stylesheet" href="/css/prettyPhoto.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/color.css">
+    <link rel="stylesheet" href="/css/transitions.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/dbresponsive.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y6XNWQ74F"></script>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      
-        ga('create', 'G-3Y6XNWQ74F', 'auto');
-        ga('send', 'pageview');
-      
+        window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3Y6XNWQ74F');
     </script>
 </head>
 
@@ -52,9 +51,9 @@
             @include('includes.header')
 
             <main id="wt-main" class="wt-main wt-haslayout">
-                
+
                 @if (Auth::check())
-                   @include('includes.sidebar')
+                @include('includes.sidebar')
                 @endif
                 @yield('content')
             </main>
@@ -79,12 +78,13 @@
     <script src="/js/jRate.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script>
-		const menu_icon = document.querySelector('.menu-icon');
+    <script>
+        const menu_icon = document.querySelector('.menu-icon');
 		function addClassFunThree() {
 	        this.classList.toggle("click-menu-icon");
 	    }
 	    menu_icon.addEventListener('click', addClassFunThree);
-	</script>
+    </script>
 </body>
+
 </html>
