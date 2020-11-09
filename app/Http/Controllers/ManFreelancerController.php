@@ -124,7 +124,7 @@ class ManFreelancerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($ref)
     {
         $freelancer = Freelancer::where('ref', $ref)->first();
         $freelancer->delete();

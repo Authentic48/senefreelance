@@ -27,7 +27,7 @@
                                 <div class="wt-tabscontenttitle">
                                     <h2>Ajouter votre parcours academique</h2>
                                 </div>
-                                <a href="{{ route('experiences.create') }}" class="wt-btn">Ajouter</a>
+                                <a href="{{ route('education.create') }}" class="wt-btn">Ajouter</a>
                                 <div class="wt-myskills">
                                     <ul class="sortable list">
                                         @foreach ($educations as $education)
