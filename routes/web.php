@@ -23,7 +23,7 @@ Route::post('/report', 'ReportController@store')->name('report.store');
 Route::post('/review', 'ReviewController@store')->name('review.store');
 Route::get('/freelancers/categorie/{freelancer_category}', 'FreelancerController@filterByCategory')->name('freelancers.category');
 Route::get('/freelancers/region/{freelancer_region}', 'FreelancerController@filterByRegion')->name('freelancers.region');
-
+Route::post('/searchResults', 'SearchController@search')->name('search');
 
 Auth::routes();
 

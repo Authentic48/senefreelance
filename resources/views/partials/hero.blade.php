@@ -17,12 +17,20 @@
                             <h1><span>Retrouvez des Freelancers facilement, </span></h1>
                         </div>
                     </div>
-                    <form class="wt-formtheme wt-formbanner">
+                    <form class="wt-formtheme wt-formbanner" action="{{ route('search') }}" method="POST" id="search">
+                        @csrf
                         <fieldset>
                             <div class="form-group">
-                                <input type="text" name="fullname" class="form-control" placeholder="Rechercher......">
+                                <input type="text" name="term" class="form-control @error('term') is-invalid @enderror"
+                                    placeholder="Rechercher.....">
+                                @error('term')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                 <div class="wt-formoptions">
-                                    <a href="#" class="wt-searchbtn"><i class="lnr lnr-magnifier"></i></a>
+                                    <a href="{{ route('search') }}" class="wt-searchbtn" onclick="event.preventDefault();
+                                    document.getElementById('search').submit();"><i class="lnr lnr-magnifier"></i></a>
                                 </div>
                             </div>
                         </fieldset>
