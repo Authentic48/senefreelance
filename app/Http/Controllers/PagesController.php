@@ -9,7 +9,7 @@ class PagesController extends Controller
 {
     public function welcome()
     {
-        $categories = Category::latest()->take(8)->get();
+        $categories = Category::latest()->get();
 
         return view('pages.welcome', compact('categories'));
     }

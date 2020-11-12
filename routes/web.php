@@ -24,6 +24,7 @@ Route::post('/review', 'ReviewController@store')->name('review.store');
 Route::get('/freelancers/categorie/{freelancer_category}', 'FreelancerController@filterByCategory')->name('freelancers.category');
 Route::get('/freelancers/region/{freelancer_region}', 'FreelancerController@filterByRegion')->name('freelancers.region');
 Route::post('/searchResults', 'SearchController@search')->name('search');
+Route::get('autocomplete', 'SearchController@autocompleteSearch')->name('search.autocomplete');
 
 Auth::routes();
 
@@ -60,6 +61,7 @@ Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->g
     Route::patch('/education/{id}', 'EducationController@update')->name('education.update');
     Route::delete('/education/{id}', 'EducationController@destroy')->name('education.delete');
     Route::get('/education', 'EducationController@index')->name('education');
+    Route::get('/dashboard', 'FreelancerController@dashboard')->name('freelancer.dashboard');
     
 });
 

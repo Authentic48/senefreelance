@@ -24,11 +24,6 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 float-left">
-                        <div class="wt-btnarea">
-                            <a href="javascript:void(0)" class="wt-btn">Voir tous</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

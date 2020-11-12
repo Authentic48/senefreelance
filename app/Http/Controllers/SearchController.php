@@ -30,4 +30,5 @@ class SearchController extends Controller
         $regions = Region::All();
         return view('pages.freelancer.index', compact('freelancers','regions','categories'));
     }
+
 }

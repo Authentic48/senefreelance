@@ -64,7 +64,7 @@
                                                 @if (Auth::user()->hasRole('freelancer') &&
                                                 Auth::user()->hasFreelancerAccount(Auth::user()->id))
                                                 <li>
-                                                    <a href="{{ route('freelancers.edit') }}">
+                                                    <a href="{{ route('freelancer.dashboard') }}">
                                                         <span>Mon profile</span>
                                                     </a>
                                                 </li>

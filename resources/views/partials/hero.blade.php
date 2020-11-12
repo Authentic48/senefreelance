@@ -29,7 +29,7 @@
                                 </span>
                                 @enderror
                                 <div class="wt-formoptions">
-                                    <a href="{{ route('search') }}" class="wt-searchbtn" onclick="event.preventDefault();
+                                    <a href="#" class="wt-searchbtn" onclick="event.preventDefault();
                                     document.getElementById('search').submit();"><i class="lnr lnr-magnifier"></i></a>
                                 </div>
                             </div>

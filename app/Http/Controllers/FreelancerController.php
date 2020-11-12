@@ -103,6 +103,17 @@ class FreelancerController extends Controller
         return view('pages.freelancer.show', compact('freelancer'));
     }
 
+        /**
+     * Display the specified resource for the owner.
+     *
+     * @param  int  $ref
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard()
+    {
+        $freelancer = Freelancer::where('user_ref', Auth::user()->ref)->first();
+        return view('pages.freelancer.dashboard', compact('freelancer'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
