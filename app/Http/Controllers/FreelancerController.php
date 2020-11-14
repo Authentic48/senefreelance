@@ -61,6 +61,7 @@ class FreelancerController extends Controller
             'citizen' => ['required'],
             'profession' => ['required'],
             'image' => ['required','mimes:jpeg,png,jpg,gif|max:2048'],
+            'about' => ['required'],
         ],$messages);
 
         
@@ -151,6 +152,7 @@ class FreelancerController extends Controller
             'name' => ['required'],
             'citizen' => ['required'],
             'profession' => ['required'],
+            'about' => ['required'],
             'image' => ['image','mimes:jpeg,png,jpg,gif|max:2048'],
         ],$messages);
 

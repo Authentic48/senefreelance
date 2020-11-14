@@ -133,6 +133,20 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'email' => [
+           'required' => 'Ce champ est obligatoire',
+           'unique' => 'Cet :attribute a déjà été pris.',    
+        ],
+        'password' => [
+            'required' => 'Ce champ est obligatoire',
+            'min' => 'Ce mot de passe doit être au moins :min.'
+         ],
+        'min' => [
+            'numeric' => 'Ce :attribute doit être au moins :min.',
+            'file' => 'Ce :attribute doit être au moins :min kilobytes.',
+            'string' => 'Ce :attribute doit être au moins :min characters.',
+            'array' => 'Ce :attribute doit avoir au moins :min items.',
+        ],
     ],
 
     /*

@@ -29,7 +29,7 @@
                                     </figure>
                                     <div class="wt-title">
                                         <h3>{{ $freelancer->name }}</h3>
-                                        <span>{{ $freelancer->email }}<br>{{ $freelancer->phone }}<br> <a>{{ $freelancer->user_ref }}</a><br> <a >{{ $freelancer->user_ref }}</a><br> <a class="wt-reportuser">{{ $freelancer->status }}</a></span>
+                                        <span>{{ $freelancer->email }}<br>{{ $freelancer->phone }}<br> <a>{{ $freelancer->user_ref }}</a><br> <a href="{{ route('freelancers.edit') }}">Modifier</a><br> <a class="wt-reportuser">{{ $freelancer->status }}</a></span>
                                     </div>
                                 </div>
                             </div>

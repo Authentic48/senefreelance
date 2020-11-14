@@ -21,6 +21,7 @@ class Freelancer
             return redirect()->route('login');
         }
         $user = Auth::user();
+        
         if($user->hasRole('freelancer'))
         {
             return $next($request);

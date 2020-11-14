@@ -46,6 +46,7 @@
 
     <div id="wt-wrapper" class="wt-wrapper wt-haslayout">
         <div class="wt-contentwrapper">
+            
             @include('includes.header')
 
             <main id="wt-main" class="wt-main wt-haslayout">
