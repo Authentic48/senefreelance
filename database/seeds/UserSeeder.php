@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         [
             'name' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('smartpass048'),
+            'password' => bcrypt('senfreelance048'),
             'ref' => substr(number_format(time() * rand(),0,'',''),0,7)
         ]);
   
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         [
           'name' => 'manager',
           'email' => 'manager@gmail.com',
-          'password' => bcrypt('smartpass048'),
+          'password' => bcrypt('senfreelance048'),
           'ref' => substr(number_format(time() * rand(),0,'',''),0,7)
         ]);
 
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         [
             'name' => 'freelancer',
             'email' => 'freelancer@gmail.com',
-            'password' => bcrypt('smartpass048'),
+            'password' => bcrypt('senfreelance048'),
             'ref' => substr(number_format(time() * rand(),0,'',''),0,7)
         ]);
         
