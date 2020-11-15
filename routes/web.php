@@ -33,7 +33,6 @@ Route::patch('/profile', 'ProfileController@update')->name('profile.update');
 
 Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(function () {
     
-    Route::get('/', 'HomeController@index')->name('admin');
     Route::get('/users', 'UserController@index')->name('admin.users');
     Route::get('/users/create', 'UserController@create')->name('admin.users.create');
     Route::post('/users', 'UserController@store')->name('admin.users.store');
@@ -78,7 +77,6 @@ Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->g
 
 Route::middleware(['auth'])->middleware(['manager'])->prefix('manager')->group(function () {
     
-    Route::get('/', 'HomeController@index')->name('manager');
     Route::get('/users', 'UserController@index')->name('manager.users');
     Route::get('/users/create', 'UserController@create')->name('manager.users.create');
     Route::post('/users', 'UserController@store')->name('manager.users.store');
