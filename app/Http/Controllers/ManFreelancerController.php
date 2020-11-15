@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Freelancer;
 use App\Region;
 use App\Category;
-
+use Auth;
 class ManFreelancerController extends Controller
 {
     /**
@@ -115,7 +115,14 @@ class ManFreelancerController extends Controller
             $freelancer->image = $filePath;
         }
         $freelancer->save();
-        return redirect()->route('manager.freelancers')->with(['status' => 'profile modifier avec succes.']);
+        if(Auth::user()->hasRole('admin'))
+        {
+            return redirect()->route('admin.freelancers')->with(['status' => 'profile modifier avec succes.']);
+        }
+        if(Auth::user()->hasRole('manager'))
+        {
+            return redirect()->route('manager.freelancers')->with(['status' => 'profile modifier avec succes.']);
+        }
     }
 
     /**
@@ -129,6 +136,14 @@ class ManFreelancerController extends Controller
         $freelancer = Freelancer::where('ref', $ref)->first();
         $freelancer->delete();
 
+        if(Auth::user()->hasRole('manager'))
+        {
         return redirect()->route('manager.freelancers')->with(['status' => 'profile supprimer avec succes.']);
+        }
+
+        if(Auth::user()->hasRole('admin'))
+        {
+        return redirect()->route('admin.freelancers')->with(['status' => 'profile supprimer avec succes.']);
+        }
     }
 }

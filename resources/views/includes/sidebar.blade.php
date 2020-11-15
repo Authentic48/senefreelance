@@ -73,12 +73,24 @@
                         <span>Utilisateurs</span>
                     </a>
                 </li>
-                @endif
-                @if (Auth::user()->hasRole('manager'))
                 <li>
                     <a href="{{ route('manager.freelancers')}}">
                         <i class="ti-briefcase"></i>
                         <span>Freelancers</span>
+                    </a>
+                </li>
+                @endif
+                @if (Auth::user()->hasRole('admin'))
+                <li>
+                    <a href="{{ route('admin.freelancers')}}">
+                        <i class="ti-briefcase"></i>
+                        <span>Freelancers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.users')}}">
+                        <i class="ti-briefcase"></i>
+                        <span>Utilisateurs</span>
                     </a>
                 </li>
                 @endif

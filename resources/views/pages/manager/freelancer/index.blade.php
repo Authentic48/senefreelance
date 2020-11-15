@@ -1,6 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('content')
+@if (session('status'))
+<div class="alert alert-success" role="alert">
+    {{ session('status') }}
+</div>
+@endif
     <section class="wt-haslayout wt-dbsectionspace">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -34,14 +39,26 @@
                                     <td>{{ $freelancer->email }}</td>
                                     <td>{{ $freelancer->user_ref }}</td>
                                     <td>
-                                        <div class="wt-actionbtn">
-                                            <a href="{{ route('manager.freelancers.edit', $freelancer->ref) }}" class="wt-addinfo wt-skillsaddinfo"><i class="lnr lnr-pencil"></i></a>
-                                            <a href="{{ route('manager.freelancers.edit', $freelancer->ref) }}" onclick="event.preventDefault(); document.getElementById('delete').submit();" class="wt-deleteinfo"><i class="lnr lnr-trash"></i></a>
-                                            <form id="delete" action="{{ route('manager.freelancers.edit', $freelancer->ref) }}" method="post">
-                                                @method('DELETE')
-                                                @csrf
-                                            </form>
-                                        </div>
+                                      @if (Auth::user()->hasRole('manager'))
+                                      <div class="wt-actionbtn">
+                                        <a href="{{ route('manager.freelancers.edit', $freelancer->ref) }}" class="wt-addinfo wt-skillsaddinfo"><i class="lnr lnr-pencil"></i></a>
+                                        <a href="{{ route('manager.freelancers.edit', $freelancer->ref) }}" onclick="event.preventDefault(); document.getElementById('delete').submit();" class="wt-deleteinfo"><i class="lnr lnr-trash"></i></a>
+                                        <form id="delete" action="{{ route('manager.freelancers.edit', $freelancer->ref) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                        </form>
+                                    </div>
+                                      @endif
+                                      @if (Auth::user()->hasRole('admin'))
+                                      <div class="wt-actionbtn">
+                                        <a href="{{ route('admin.freelancers.edit', $freelancer->ref) }}" class="wt-addinfo wt-skillsaddinfo"><i class="lnr lnr-pencil"></i></a>
+                                        <a href="{{ route('admin.freelancers.edit', $freelancer->ref) }}" onclick="event.preventDefault(); document.getElementById('delete').submit();" class="wt-deleteinfo"><i class="lnr lnr-trash"></i></a>
+                                        <form id="delete" action="{{ route('admin.freelancers.edit', $freelancer->ref) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                        </form>
+                                    </div>
+                                      @endif
                                     </td>
                                 </tr>
                                 @endforeach

@@ -15,8 +15,14 @@
                                 <div class="wt-tabscontenttitle">
                                     <h2>Compte</h2>
                                 </div>
-                                <form class="wt-formtheme wt-userform" method="POST"
-                                    action="{{ route('manager.users.store') }}" enctype="multipart/form-data">
+                               @if (Auth::user()->hasRole('manager'))
+                               <form class="wt-formtheme wt-userform" method="POST"
+                               action="{{ route('manager.users.store') }}" enctype="multipart/form-data"> 
+                               @endif
+                               @if (Auth::user()->hasRole('admin'))
+                               <form class="wt-formtheme wt-userform" method="POST"
+                               action="{{ route('admin.users.store') }}" enctype="multipart/form-data"> 
+                               @endif
                                     @csrf
                                     <fieldset>
                                         <div class="form-group form-group-half">

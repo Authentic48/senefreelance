@@ -27,9 +27,16 @@
                                 <div class="wt-tabscontenttitle">
                                     <h2>Modifier votre profile</h2>
                                 </div>
+                                @if (Auth::user()->hasRole('manager'))
                                 <form class="wt-formtheme wt-userform" method="POST"
-                                    action="{{ route('manager.freelancers.update', $freelancer->ref) }}" enctype="multipart/form-data">
-                                    @method('PATCH')
+                                action="{{ route('manager.freelancers.update', $freelancer->ref) }}" enctype="multipart/form-data">
+                                @method('PATCH') 
+                                @endif
+                                @if (Auth::user()->hasRole('admin'))
+                                <form class="wt-formtheme wt-userform" method="POST"
+                                action="{{ route('admin.freelancers.update', $freelancer->ref) }}" enctype="multipart/form-data">
+                                @method('PATCH') 
+                                @endif
                                     @csrf
                                     <fieldset>
                                         <div class="form-group form-group-half">

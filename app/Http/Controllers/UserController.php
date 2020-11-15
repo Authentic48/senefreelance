@@ -54,12 +54,6 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->ref = substr(number_format(time() * rand(),0,'',''),0,7);
-        $user->save();
-        
-        $role = 'freelancer';
-        $userRole = Role::where('name', $role)->first();
-        $user->roles()->attach($userRole);
-        
         if($request->has('image'))
         {
             $image = $request->file('image');
@@ -69,7 +63,19 @@ class UserController extends Controller
             $user->image = $filePath;
         }
         $user->save();
+        
+        $role = 'freelancer';
+        $userRole = Role::where('name', $role)->first();
+        $user->roles()->attach($userRole);
+        
+        if(Auth::user()->hasRole('manager'))
+        {
         return redirect()->route('manager.users')->with(['status' => 'Compte creer avec succes']);
+        }
+        if(Auth::user()->hasRole('admin'))
+        {
+        return redirect()->route('admin.users')->with(['status' => 'Compte creer avec succes']);
+        }
     }
 
     /**
@@ -134,7 +140,14 @@ class UserController extends Controller
             $user->image = $filePath;
         }
         $user->save();
+        if(Auth::user()->hasRole('manager'))
+        {
         return redirect()->route('manager.users')->with(['status' => 'Compte modifier avec succes']);
+        }
+        if(Auth::user()->hasRole('admin'))
+        {
+        return redirect()->route('admin.users')->with(['status' => 'Compte modifier avec succes']);
+        }
     }
 
     /**
@@ -147,7 +160,13 @@ class UserController extends Controller
     {
         $user = User::where('ref', $ref)->first();
         $user->delete();
-        
+        if(Auth::user()->hasRole('manager'))
+        {
         return redirect()->route('manager.users')->with(['status' => 'Compte supprimer avec succes']);
+        }
+        if(Auth::user()->hasRole('admin'))
+        {
+        return redirect()->route('admin.users')->with(['status' => 'Compte supprimer avec succes']);
+        }
     }
 }

@@ -34,6 +34,17 @@ Route::patch('/profile', 'ProfileController@update')->name('profile.update');
 Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(function () {
     
     Route::get('/', 'HomeController@index')->name('admin');
+    Route::get('/users', 'UserController@index')->name('admin.users');
+    Route::get('/users/create', 'UserController@create')->name('admin.users.create');
+    Route::post('/users', 'UserController@store')->name('admin.users.store');
+    Route::get('/users/{ref}', 'UserController@edit')->name('admin.users.edit');
+    Route::patch('/users/{ref}', 'UserController@update')->name('admin.users.update');
+    Route::delete('/users/{ref}', 'UserController@destroy')->name('admin.users.delete');
+    Route::get('/freelancers', 'ManFreelancerController@index')->name('admin.freelancers');
+    Route::get('/freelancers/{ref}', 'ManFreelancerController@edit')->name('admin.freelancers.edit');
+    Route::patch('/freelancers/{ref}', 'ManFreelancerController@update')->name('admin.freelancers.update');
+    Route::delete('/freelancers/{ref}', 'ManFreelancerController@destroy')->name('admin.freelancers.delete');
+    Route::get('/freelancer/{ref}', 'ManFreelancerController@show')->name('admin.freelancers.show');
    
 });
 

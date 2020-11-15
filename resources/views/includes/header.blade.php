@@ -53,11 +53,21 @@
                                                         <span>Utilisateurs</span>
                                                     </a>
                                                 </li>
-                                                @endif
-                                                @if (Auth::user()->hasRole('manager'))
                                                 <li>
                                                     <a href="{{ route('manager.freelancers')}}">
                                                         <span>Freelancers</span>
+                                                    </a>
+                                                </li>
+                                                @endif
+                                                @if (Auth::user()->hasRole('admin'))
+                                                <li>
+                                                    <a href="{{ route('admin.freelancers')}}">
+                                                        <span>Freelancers</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('admin.users')}}">
+                                                        <span>Utilisateurs</span>
                                                     </a>
                                                 </li>
                                                 @endif

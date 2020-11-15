@@ -15,9 +15,16 @@
                                 <div class="wt-tabscontenttitle">
                                     <h2>Compte</h2>
                                 </div>
-                                <form class="wt-formtheme wt-userform" method="POST"
-                                    action="{{ route('manager.users.update', $user->ref) }}" enctype="multipart/form-data">
-                                    @method('PATCH')
+                               @if (Auth::user()->hasRole('manager'))
+                               <form class="wt-formtheme wt-userform" method="POST"
+                               action="{{ route('manager.users.update', $user->ref) }}" enctype="multipart/form-data">
+                               @method('PATCH')
+                               @endif
+                               @if (Auth::user()->hasRole('admin'))
+                               <form class="wt-formtheme wt-userform" method="POST"
+                               action="{{ route('admin.users.update', $user->ref) }}" enctype="multipart/form-data">
+                               @method('PATCH')
+                               @endif
                                     @csrf
                                     <fieldset>
                                         <div class="form-group form-group-half">
