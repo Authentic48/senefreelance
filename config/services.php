@@ -16,7 +16,7 @@ return [
 
     'mailgun' => [
         'domain' => 'mail.senfreelance.com',
-        'secret' => '9046135fe854f04d5beffd773cb8fdf0-a65173b1-7389e04c',
+        'secret' => 'key-fd55d92009f49a6f8db09d52ac3a8c18',
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 

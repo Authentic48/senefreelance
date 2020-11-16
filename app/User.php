@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\PasswordReset;
+use Illuminate\Contracts\Auth\CanResetPassword;
 
 class User extends Authenticatable
 {
@@ -63,25 +65,24 @@ class User extends Authenticatable
     }
 
     /**
-     * Sends the password reset notification.
-     *
-     * @param  string $token
-     *
-     * @return void
-     */
+      * Send the password reset notification.
+      *
+      * @param  string  $token
+      * @return void
+      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new CustomPassword($token));
+        $this->notify(new PasswordReset($token));
+    }
+
+    /**
+      * Send the email verification notification.
+      *
+      * @return void
+    */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmail); // my notification
     }
 }
 
-class CustomPassword extends ResetPassword
-{
-    public function toMail($notifiable)
-    {
-        return (new MailMessage)
-            ->line('Nous envoyons cet e-mail car nous avons reçu une demande de mot de passe oublié.')
-            ->action('réinitialiser votre mot de passe', url(config('app.url') . route('password.reset', $this->token, false)))
-            ->line("Si vous n'avez pas demandé de réinitialisation de mot de passe, aucune autre action n'est requise. Veuillez nous contacter si vous n'avez pas soumis cette demande");
-    }
-}
