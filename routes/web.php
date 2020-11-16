@@ -26,7 +26,8 @@ Route::get('/freelancers/region/{freelancer_region}', 'FreelancerController@filt
 Route::post('/searchResults', 'SearchController@search')->name('search');
 Route::get('autocomplete', 'SearchController@autocompleteSearch')->name('search.autocomplete');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::patch('/profile', 'ProfileController@update')->name('profile.update');

@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Notifications;
-
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Auth\Notifications\VerifyEmail as VerifyEmailBase;
 
 class VerifyEmail extends Notification
 {
     use Queueable;
+
+    public static $toMailCallback;
 
     /**
      * Create a new notification instance.
@@ -40,10 +45,18 @@ class VerifyEmail extends Notification
      */
     public function toMail($notifiable)
     {
+        $verificationUrl = $this->verificationUrl($notifiable);
+
+        if (static::$toMailCallback) 
+        {
+            return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
+        }
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Confirmez votre e-mail')
+            ->line('Veuillez cliquer sur le bouton ci-dessous pour confirmer votre adresse e-mail.')
+            ->action('Confirmez votre e-mail', $verificationUrl)
+            ->line("Si vous n'avez pas créé de compte, aucune autre action n'est requise.");
     }
 
     /**
