@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <strong class="wt-logo"><a href="{{ route('welcome') }}"><img src=""
+                    <strong class="wt-logo"><a href="{{ route('welcome') }}"><img src="{{ asset('images/logo2.png')}}"
                                 alt="SenFreelance"></a></strong>
                     <div class="wt-rightarea">
                         <nav id="wt-nav" class="wt-nav navbar-expand-lg">

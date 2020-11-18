@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="wt-footerlogohold">
-                        <strong class="wt-logo"><a href="{{ route('welcome') }}"><img src="" alt="SenFreelance"></a></strong>
+                        <strong class="wt-logo"><a href="{{ route('welcome') }}"><img src="{{ asset('images/logo2.png')}}" alt="SenFreelance"></a></strong>
                         <div class="wt-description">
                             <p>SenFreelance est le premier portail d'annonce des freelancers au Senegal . Notre objectif est d'offrir aux particuliers <a href="{{ route('about')}}">plus...</a></p>
                         </div>
