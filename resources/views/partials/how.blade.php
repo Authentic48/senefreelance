@@ -25,7 +25,7 @@
                                     <a class="active" id="all-tab" data-toggle="tab" href="#forhiring">Particuliers</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="business-tab" data-toggle="tab" href="#forfreelancing">Professionelles</a>
+                                    <a id="business-tab" data-toggle="tab" href="#forfreelancing">Professionels</a>
                                 </li>
                             </ul>
                             <div class="tab-content wt-haslayout">
