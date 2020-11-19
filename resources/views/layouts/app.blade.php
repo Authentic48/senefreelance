@@ -4,14 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="SenFreelance" />
+    <meta name="description" content="senfreelance.com - SenFreelance est le premier portail d'annonce des professionels au Senegal. Notre objectif est d'offrir aux particuliers et aux professionels le moyen le plus fiable et le plus simple pour réaliser vos travaux ou projets." />
+    <meta property="og:site_name" content="SenFreelance"/>
+    <meta property="og:description" content="SenFreelance est le premier portail d'annonce des professionels au Senegal. Notre objectif est d'offrir aux particuliers et aux professionels le moyen le plus fiable et le plus simple pour réaliser vos travaux ou projets." />
+    <meta property="og:image" content="{{ asset('images/favicon.png') }}" />
+    <meta name="keywords" content="senfreelance, professionels a Dakar, Freelancer a Dakar, artisans a Dakar, " />
+    <meta name="author" content="EliteTech" />
+    <meta property="og:url" content="https://www.senfreelance.com/"/>
+    <meta property="og:type" content="website"/>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'SenFreelance') }}</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/scrollbar.css">

@@ -32,6 +32,7 @@ Auth::routes(['verify' => true]);
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::patch('/profile', 'ProfileController@update')->name('profile.update');
 Route::get('/verify/email', 'HomeController@verify')->name('verify.user');
+
 Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(function () {
     
     Route::get('/users', 'UserController@index')->name('admin.users');
@@ -48,7 +49,7 @@ Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(funct
    
 });
 
-Route::middleware(['auth'])->middleware(['freelancer'])->prefix('freelancer')->group(function () {
+Route::middleware(['auth'])->middleware(['verified'])->middleware(['freelancer'])->prefix('freelancer')->group(function () {
 
     Route::get('/profile/create', 'FreelancerController@create')->name('freelancers.create');
     Route::post('/freelancers', 'FreelancerController@store')->name('freelancers.store');
