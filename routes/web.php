@@ -31,7 +31,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::patch('/profile', 'ProfileController@update')->name('profile.update');
-
+Route::get('/verify/email', 'HomeController@verify')->name('verify.user');
 Route::middleware(['auth'])->middleware(['admin'])->prefix('admin')->group(function () {
     
     Route::get('/users', 'UserController@index')->name('admin.users');

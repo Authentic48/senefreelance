@@ -49,6 +49,7 @@ class PasswordReset extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->subject('réinitialiser votre mot de passe')
             ->line('Nous envoyons cet e-mail car nous avons reçu une demande de mot de passe oublié.')
             ->action('réinitialiser votre mot de passe', url(config('app.url') . route('password.reset', $this->token, false)))
             ->line("Si vous n'avez pas demandé de réinitialisation de mot de passe, aucune autre action n'est requise. Veuillez nous contacter si vous n'avez pas soumis cette demande");
