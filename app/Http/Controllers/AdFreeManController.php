@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Role;
+use App\Freelancer;
+use App\Region;
+use App\Category;
 use Auth;
-class UserController extends Controller
+
+class AdFreeManController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(20);
-        return view('pages.manager.user.index', compact('users'));
+        $freelancers = Freelancer::latest()->paginate(20);
+        return view('pages.manager.freelancer.index', compact('freelancers'));
     }
 
     /**
@@ -67,7 +69,7 @@ class UserController extends Controller
         $role = 'freelancer';
         $userRole = Role::where('name', $role)->first();
         $user->roles()->attach($userRole);
-        return redirect()->route('manager.users')->with(['status' => 'Compte creer avec succes']);
+        return redirect()->route('admin.users')->with(['status' => 'Compte creer avec succes']);
     }
 
     /**
@@ -76,9 +78,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ref)
     {
-        //
+        $freelancer = Freelancer::where('ref', $ref)->first();
+        return view('pages.manager.freelancer.show', compact('freelancer'));
     }
 
     /**
@@ -89,8 +92,10 @@ class UserController extends Controller
      */
     public function edit($ref)
     {
-        $user = User::where('ref', $ref)->first();
-        return view('pages.manager.user.edit', compact('user'));
+        $categories = Category::All();
+        $regions = Region::All();
+        $freelancer = Freelancer::where('ref', $ref)->first();
+        return view('pages.manager.freelancer.edit', compact('freelancer','categories','regions'));
     }
 
     /**
@@ -106,33 +111,44 @@ class UserController extends Controller
         [
           'required' => 'Ce champ est obligatoire.',
         ];
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['confirmed'],
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ], $messages);
-    
-        
-        $user = User::where('ref', $ref)->first();
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+            'phone' => ['required'],
+            'region' => ['required'],
+            'commune' => ['required'],
+            'category' => ['required'],
+            'name' => ['required'],
+            'citizen' => ['required'],
+            'profession' => ['required'],
+            'status' => ['required'],
+            'image' => ['image','mimes:jpeg,png,jpg,gif|max:2048'],
+            'about' =>'required'
+        ],$messages);
 
-        if($request->password)
-        {
-            $user->password = Hash::make($request->password);
-        }
-        
-        if($request->has('image'))
+        $freelancer = Freelancer::where('ref', $ref)->first();
+        $freelancer->name = $request->name;
+        $freelancer->email = $request->email;
+        $freelancer->phone = $request->phone;
+        $freelancer->region = $request->region;
+        $freelancer->citizenship = $request->citizen;
+        $freelancer->profession = $request->profession;
+        $freelancer->commune = $request->commune;
+        $freelancer->category = $request->category;
+        $freelancer->about = $request->about;
+        $freelancer->status = $request->status;
+
+        if ($request->has('image'))
         {
             $image = $request->file('image');
             $name = Str::slug($request->input('name')).'_'.time();
             $folder = '/images'; 
             $filePath = Storage::disk('do_spaces')->putFileAs($folder, $image, $name, 'public');
-            $user->image = $filePath;
+            $freelancer->image = $filePath;
         }
-        $user->save();
-        return redirect()->route('manager.users')->with(['status' => 'Compte modifier avec succes']);
+        $freelancer->save();
+
+        return redirect()->route('admin.freelancers')->with(['status' => 'profile modifier avec succes.']);
     }
 
     /**
@@ -143,8 +159,8 @@ class UserController extends Controller
      */
     public function destroy($ref)
     {
-        $user = User::where('ref', $ref)->first();
-        $user->delete();
-        return redirect()->route('manager.users')->with(['status' => 'Compte supprimer avec succes']);
+        $freelancer = Freelancer::where('ref', $ref)->first();
+        $freelancer->delete();
+        return redirect()->route('admin.freelancers')->with(['status' => 'profile supprimer avec succes.']);
     }
 }

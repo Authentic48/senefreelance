@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Role;
 use Auth;
-class UserController extends Controller
+
+class AdUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -68,6 +69,7 @@ class UserController extends Controller
         $userRole = Role::where('name', $role)->first();
         $user->roles()->attach($userRole);
         return redirect()->route('manager.users')->with(['status' => 'Compte creer avec succes']);
+
     }
 
     /**

@@ -92,6 +92,7 @@ class ManFreelancerController extends Controller
             'profession' => ['required'],
             'status' => ['required'],
             'image' => ['image','mimes:jpeg,png,jpg,gif|max:2048'],
+            'about' =>'required'
         ],$messages);
 
         $freelancer = Freelancer::where('ref', $ref)->first();
@@ -115,14 +116,8 @@ class ManFreelancerController extends Controller
             $freelancer->image = $filePath;
         }
         $freelancer->save();
-        if(Auth::user()->hasRole('admin'))
-        {
-            return redirect()->route('admin.freelancers')->with(['status' => 'profile modifier avec succes.']);
-        }
-        if(Auth::user()->hasRole('manager'))
-        {
-            return redirect()->route('manager.freelancers')->with(['status' => 'profile modifier avec succes.']);
-        }
+
+        return redirect()->route('admin.freelancers')->with(['status' => 'profile modifier avec succes.']);
     }
 
     /**
@@ -135,15 +130,6 @@ class ManFreelancerController extends Controller
     {
         $freelancer = Freelancer::where('ref', $ref)->first();
         $freelancer->delete();
-
-        if(Auth::user()->hasRole('manager'))
-        {
-        return redirect()->route('manager.freelancers')->with(['status' => 'profile supprimer avec succes.']);
-        }
-
-        if(Auth::user()->hasRole('admin'))
-        {
         return redirect()->route('admin.freelancers')->with(['status' => 'profile supprimer avec succes.']);
-        }
     }
 }
