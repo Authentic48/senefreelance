@@ -25,10 +25,10 @@
                         <div class="wt-personalskillshold tab-pane active fade show" id="wt-skills">
                             <div class="wt-yourdetails wt-tabsinfo">
                                 <div class="wt-tabscontenttitle">
-                                    <h2>Modifier ce profile</h2>
+                                    <h2>Modifier votre profile</h2>
                                 </div>
                                 <form class="wt-formtheme wt-userform" method="POST"
-                                action="{{ route('manager.freelancers.update', $freelancer->ref) }}" enctype="multipart/form-data">
+                                action="{{ route('admin.freelancers.update', $freelancer->ref) }}" enctype="multipart/form-data">
                                 @method('PATCH') 
                                     @csrf
                                     <fieldset>

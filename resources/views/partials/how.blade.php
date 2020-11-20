@@ -37,10 +37,11 @@
                                                     <div class="wt-sectionhead">
                                                         <div class="wt-sectiontitle">
                                                             <h2>Comment recruter</h2>
-                                                            <span>retrouvez des professionelles facilement</span>
+                                                            <span>Retrouvez des professionels facilement</span>
                                                         </div>
                                                         <div class="wt-description">
-                                                            <p>Dotem eiusmod tempor incune utnaem labore etdolore maigna aliqua eniina ilukita ylokem lokateise ination voluptate velite esse cillum dolore eu fugnulla pariatur lokaim urianewce animid</p>
+                                                            <p>Les visiteurs ont accès libre dans la plateforme; ils peuvent consulter tous les profils et contacter le freelancer qui correspond à leur attente.
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -66,7 +67,7 @@
                                                             <span>Partagez votre passion</span>
                                                         </div>
                                                         <div class="wt-description">
-                                                            <p>Dotem eiusmod tempor incune utnaem labore etdolore maigna aliqua eniina ilukita ylokem lokateise ination voluptate velite esse cillum dolore eu fugnulla pariatur lokaim urianewce animid.</p>
+                                                            <p>Vous êtes freelancer, cette plateforme est développée pour vous permettre de valoriser vos compétences, en s’engageant dans des projets très innovants. Pour cela, il vous suffit de vous inscrire gratuitement, de partager votre domaine d’activité, votre disponibilité et le type de missions que vous cherchez. Vous avez aussi la possibilité de modifier votre profil, en y ajoutant de nouvelles compétences etc.</p>
                                                         </div>
                                                     </div>
                                                 </div>

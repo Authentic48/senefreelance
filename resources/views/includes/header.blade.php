@@ -14,7 +14,7 @@
                             <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a href="{{ route('freelancers') }}">Professionelles</a>
+                                        <a href="{{ route('freelancers') }}">Professionels</a>
                                     </li>
                                     @guest
                                     <li class="nav-item">

@@ -35,14 +35,14 @@
                                 @foreach ($freelancers as $freelancer)
                                 <tr>
                                     <td><figure><img src="{{ Storage::disk('do_spaces')->url($freelancer->image) }}" alt="{{ $freelancer->name }}"></figure></td>
-                                    <td><a href="{{ route('manager.freelancers.show', $freelancer->ref) }}">{{ $freelancer->name }}</a></td>
+                                    <td><a href="{{ route('admin.freelancers.show', $freelancer->ref) }}">{{ $freelancer->name }}</a></td>
                                     <td>{{ $freelancer->email }}</td>
                                     <td>{{ $freelancer->user_ref }}</td>
                                     <td>
                                       <div class="wt-actionbtn">
-                                        <a href="{{ route('manager.freelancers.edit', $freelancer->ref) }}" class="wt-addinfo wt-skillsaddinfo"><i class="lnr lnr-pencil"></i></a>
-                                        <a href="{{ route('manager.freelancers.edit', $freelancer->ref) }}" onclick="event.preventDefault(); document.getElementById('delete').submit();" class="wt-deleteinfo"><i class="lnr lnr-trash"></i></a>
-                                        <form id="delete" action="{{ route('manager.freelancers.edit', $freelancer->ref) }}" method="post">
+                                        <a href="{{ route('admin.freelancers.edit', $freelancer->ref) }}" class="wt-addinfo wt-skillsaddinfo"><i class="lnr lnr-pencil"></i></a>
+                                        <a href="{{ route('admin.freelancers.edit', $freelancer->ref) }}" onclick="event.preventDefault(); document.getElementById('delete').submit();" class="wt-deleteinfo"><i class="lnr lnr-trash"></i></a>
+                                        <form id="delete" action="{{ route('admin.freelancers.edit', $freelancer->ref) }}" method="post">
                                             @method('DELETE')
                                             @csrf
                                         </form>

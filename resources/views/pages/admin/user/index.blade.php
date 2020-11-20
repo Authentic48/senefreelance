@@ -12,7 +12,7 @@
             <div class="wt-dashboardbox wt-categorys">
                 <div class="wt-dashboardboxtitle wt-titlewithsearch">
                     <h2>Utilisateurs</h2>
-                    <a href="{{ route('manager.users.create') }}" class="wt-btn ml-3">Ajouter</a>
+                    <a href="{{ route('admin.users.create') }}" class="wt-btn ml-3">Ajouter</a>
                     <form class="wt-formtheme wt-formsearch">
                         <fieldset>
                             <div class="form-group">
@@ -41,21 +41,19 @@
                                 <td>{{ $user->ref }}</td>
                                 <td>{{ $user->created_at->diffForHumans() }}</td>
                                 <td>{{ $user->updated_at->diffForHumans() }}</td>
-                                @if (Auth::user()->hasRole('manager'))
-                                @if (!$user->hasRole('admin') && !$user->hasRole('manager'))
+                                @if (Auth::user()->hasRole('admin'))
                                 <td>
                                     <div class="wt-actionbtn">
-                                        <a href="{{ route('manager.users.edit', $user->ref) }}"
+                                        <a href="{{ route('admin.users.edit', $user->ref) }}"
                                             class="wt-addinfo wt-skillsaddinfo"><i class="lnr lnr-pencil"></i></a>
-                                        <a onclick="event.preventDefault(); document.getElementById('delete').submit();" href="{{ route('manager.users.delete', $user->ref) }}"
+                                        <a onclick="event.preventDefault(); document.getElementById('delete').submit();" href="{{ route('admin.users.delete', $user->ref) }}"
                                             class="wt-deleteinfo"><i class="lnr lnr-trash"></i></a>
-                                        <form action="{{ route('manager.users.delete', $user->ref) }}" method="POST" id="delete">
+                                        <form action="{{ route('admin.users.delete', $user->ref) }}" method="POST" id="delete">
                                             @method('DELETE')
                                             @csrf
                                         </form>
                                     </div>
                                 </td>
-                                @endif
                                 @endif
                             </tr>
                             @endforeach

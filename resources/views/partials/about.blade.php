@@ -28,7 +28,7 @@
                                                 <h2>Dallal Ak Jam</h2>
                                             </div>
                                             <div class="wt-description">
-                                                <p>SenFreelance est le premier portail d'annonce des professionels au Senegal. Notre objectif est d'offrir aux particuliers et aux professionels le moyen le plus fiable et le plus simple pour réaliser vos travaux ou projets.</p>
+                                                <p>SenFreelance est le premier portail d’annonce des professionnels au Sénégal. Notre objectif est d’offrir aux particuliers et aux professionnels le moyen le plus fiable et le plus simple pour réaliser vos travaux. Le fonctionnement est simple: les freelances  que nous sélectionnons proposent leurs services. Les clients peuvent donc choisir dans un vaste catalogue le freelance qui correspond le mieux à la réalisation de leur projet. Tous deux peuvent ensuite communiquer directement sur le projet. L’inscription est totalement gratuite.</p>
                                             </div>
                                         </div>
                                     </div>

@@ -15,12 +15,16 @@
                                 <div class="wt-tabscontenttitle">
                                     <h2>Compte</h2>
                                 </div>
-                               <form class="wt-formtheme wt-userform" method="POST"
-                               action="{{ route('manager.users.store') }}" enctype="multipart/form-data"> 
+                                <form class="wt-formtheme wt-userform" method="POST"
+                                    action="{{ route('admin.users.update', $user->ref) }}"
+                                    enctype="multipart/form-data">
+                                    @method('PATCH')
                                     @csrf
                                     <fieldset>
                                         <div class="form-group form-group-half">
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Nom">
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                placeholder="First Name" name="name"
+                                                value="{{ old('name', $user->name) }}" placeholder="Nom">
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -29,25 +33,15 @@
                                         </div>
                                         <div class="form-group form-group-half">
                                             <input type="email"
-                                                class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email">
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ old('email', $user->email) }}" placeholder="Email">
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group form-group-half">
-                                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Mot de Passe">
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group form-group-half">
-                                            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmer mot de Passe">
-                                        </div>
-                                        
+
                                         <div class="form-group form-group-label">
                                             <div class="wt-labelgroup">
                                                 <input type="file" name="image">
@@ -60,7 +54,7 @@
                                         </div>
                                         <div class="form-group  wt-btnarea">
                                             <button type="submit" class="wt-btn">
-                                                Creer
+                                                Sauvegarder
                                             </button>
                                         </div>
                                     </fieldset>

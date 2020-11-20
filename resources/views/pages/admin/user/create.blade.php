@@ -16,7 +16,7 @@
                                     <h2>Compte</h2>
                                 </div>
                                <form class="wt-formtheme wt-userform" method="POST"
-                               action="{{ route('manager.users.store') }}" enctype="multipart/form-data"> 
+                               action="{{ route('admin.users.store') }}" enctype="multipart/form-data"> 
                                     @csrf
                                     <fieldset>
                                         <div class="form-group form-group-half">
