@@ -17,7 +17,7 @@ class AdUserController extends Controller
     public function index()
     {
         $users = User::paginate(20);
-        return view('pages.manager.user.index', compact('users'));
+        return view('pages.admin.user.index', compact('users'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AdUserController extends Controller
      */
     public function create()
     {
-        return view('pages.manager.user.create');
+        return view('pages.admin.user.create');
     }
 
     /**
@@ -68,7 +68,7 @@ class AdUserController extends Controller
         $role = 'freelancer';
         $userRole = Role::where('name', $role)->first();
         $user->roles()->attach($userRole);
-        return redirect()->route('manager.users')->with(['status' => 'Compte creer avec succes']);
+        return redirect()->route('admin.users')->with(['status' => 'Compte creer avec succes']);
 
     }
 
@@ -92,7 +92,7 @@ class AdUserController extends Controller
     public function edit($ref)
     {
         $user = User::where('ref', $ref)->first();
-        return view('pages.manager.user.edit', compact('user'));
+        return view('pages.admin.user.edit', compact('user'));
     }
 
     /**
@@ -134,7 +134,7 @@ class AdUserController extends Controller
             $user->image = $filePath;
         }
         $user->save();
-        return redirect()->route('manager.users')->with(['status' => 'Compte modifier avec succes']);
+        return redirect()->route('admin.users')->with(['status' => 'Compte modifier avec succes']);
     }
 
     /**
@@ -147,6 +147,6 @@ class AdUserController extends Controller
     {
         $user = User::where('ref', $ref)->first();
         $user->delete();
-        return redirect()->route('manager.users')->with(['status' => 'Compte supprimer avec succes']);
+        return redirect()->route('admin.users')->with(['status' => 'Compte supprimer avec succes']);
     }
 }

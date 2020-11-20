@@ -18,7 +18,7 @@ class AdFreeManController extends Controller
     public function index()
     {
         $freelancers = Freelancer::latest()->paginate(20);
-        return view('pages.manager.freelancer.index', compact('freelancers'));
+        return view('pages.admin.freelancer.index', compact('freelancers'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AdFreeManController extends Controller
      */
     public function create()
     {
-        return view('pages.manager.user.create');
+        return view('pages.admin.user.create');
     }
 
     /**
@@ -81,7 +81,7 @@ class AdFreeManController extends Controller
     public function show($ref)
     {
         $freelancer = Freelancer::where('ref', $ref)->first();
-        return view('pages.manager.freelancer.show', compact('freelancer'));
+        return view('pages.admin.freelancer.show', compact('freelancer'));
     }
 
     /**
@@ -95,7 +95,7 @@ class AdFreeManController extends Controller
         $categories = Category::All();
         $regions = Region::All();
         $freelancer = Freelancer::where('ref', $ref)->first();
-        return view('pages.manager.freelancer.edit', compact('freelancer','categories','regions'));
+        return view('pages.admin.freelancer.edit', compact('freelancer','categories','regions'));
     }
 
     /**
