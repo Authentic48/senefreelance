@@ -41,7 +41,8 @@
                                                 <div class="wt-checkboxholder wt-verticalscrollbar">
                                                     @foreach ($categories as $category)
                                                     <span class="wt-checkbox">
-                                                        <a href="{{ route('freelancers.category', $category->name) }}">{{ $category->name }}</a>
+                                                        <a
+                                                            href="{{ route('freelancers.category', $category->name) }}">{{ $category->name }}</a>
                                                     </span>
                                                     @endforeach
                                                 </div>
@@ -59,7 +60,8 @@
                                                 <div class="wt-checkboxholder wt-verticalscrollbar">
                                                     @foreach ($regions as $region)
                                                     <span class="wt-checkbox">
-                                                        <a href="{{ route('freelancers.region', $region->name) }}">{{ $region->name }}</a>
+                                                        <a
+                                                            href="{{ route('freelancers.region', $region->name) }}">{{ $region->name }}</a>
                                                     </span>
                                                     @endforeach
                                                 </div>
@@ -79,8 +81,10 @@
                                 <div class="wt-userlistingcontent">
                                     <div class="wt-contenthead">
                                         <div class="wt-title">
-                                            <a href="{{ route('freelancers.show', $freelancer->ref) }}"> {{ $freelancer->name }}</a>
-                                            <h2><a href="{{ route('freelancers.show', $freelancer->ref) }}"> {{ $freelancer->profession }} </a></h2>
+                                            <a href="{{ route('freelancers.show', $freelancer->ref) }}">
+                                                {{ $freelancer->name }}</a>
+                                            <h2><a href="{{ route('freelancers.show', $freelancer->ref) }}">
+                                                    {{ $freelancer->profession }} </a></h2>
                                         </div>
                                         <ul class="wt-userlisting-breadcrumb">
                                             <li><span>{{ $freelancer->region }}</span></li>
@@ -102,9 +106,12 @@
 
                             @if ($freelancers->count() == 0)
                             <div class="wt-userlistinghold">
-                                <h2>Recherche Introuvable !!!</h2>
+                                <h2>Oops Introuvable !!!</h2>
                             </div>
                             @endif
+                            <!-- Pagination ==== -->
+                            {{ $freelancers->links('partials.paginator') }}
+                            <!-- Pagination END ==== -->
                         </div>
                     </div>
                 </div>
