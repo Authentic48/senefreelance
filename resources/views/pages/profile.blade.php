@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Mon Compte')
+
 @section('content')
 <section class="wt-haslayout">
     <div class="row">

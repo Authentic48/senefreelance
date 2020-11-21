@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Ajouter mon experience')
+
 @section('content')
 @if ($errors->any())
 <div class="alert alert-danger">

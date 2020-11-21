@@ -1,5 +1,7 @@
 @extends('layouts.verify')
 
+@section('title', 'Verifier votre email')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5">

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '{{  $freelancer->profession  }}')
+
 @section('content')
 @if (session('status'))
 <div class="alert alert-success" role="alert">

@@ -16,7 +16,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'SenFreelance') }}</title>
+    <title>{{ config('app.name', 'SenFreelance') }} - @yield('title')</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="/css/bootstrap.min.css">

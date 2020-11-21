@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Se Connecter')
+
 @section('content')
 
 <div class="container">

@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+
+@section('title', 'Entrez votre email')
+
 @section('content')
 @if (session('status'))
 <div class="alert alert-success" role="alert">

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'Freelancers')
 @section('content')
 <div class="wt-haslayout wt-innerbannerholder">
     <div class="container">
