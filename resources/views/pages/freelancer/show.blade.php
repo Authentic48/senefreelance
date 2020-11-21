@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '{{  $freelancer->profession  }}')
+@section('title', 'Freelancer')
 
 @section('content')
 @if (session('status'))

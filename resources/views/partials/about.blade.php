@@ -25,7 +25,7 @@
                                     <div class="wt-greetingcontent">
                                         <div class="wt-sectionhead">
                                             <div class="wt-sectiontitle">
-                                                <h2>Dallal Ak Jam</h2>
+                                                <h2>A Propos</h2>
                                             </div>
                                             <div class="wt-description">
                                                 <p>SenFreelance est le premier portail d’annonce des professionnels au Sénégal. Notre objectif est d’offrir aux particuliers et aux professionnels le moyen le plus fiable et le plus simple pour réaliser vos travaux. Le fonctionnement est simple: les freelances  que nous sélectionnons proposent leurs services. Les clients peuvent donc choisir dans un vaste catalogue le freelance qui correspond le mieux à la réalisation de leur projet. Tous deux peuvent ensuite communiquer directement sur le projet. L’inscription est totalement gratuite.</p>
@@ -50,7 +50,7 @@
                                         <h2><span>Devenir</span>Freelancer</h2>
                                     </div>
                                     <div class="wt-description">
-                                        <p>Faire son annonce, c'est partagez son expertise et sa passion!</p>
+                                        <p>Faire son annonce, c'est partagez sa passion et  son expertise!</p>
                                     </div>
                                     <div class="wt-btnarea">
                                         @if (!Auth::check())

@@ -49,7 +49,7 @@
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-5 float-right">
                                                 <div class="wt-howtoworkimg">
                                                     <figure>
-                                                        <img src="images/work/img-01.jpg" alt="img description">
+                                                        <img src="images/work.jpg" alt="img description">
                                                     </figure>
                                                 </div>
                                             </div>
@@ -75,7 +75,7 @@
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-5 float-left">
                                                 <div class="wt-howtoworkimg">
                                                     <figure>
-                                                        <img src="images/work/img-01.jpg" alt="img description">
+                                                        <img src="images/work1.jpg" alt="img description">
                                                     </figure>
                                                 </div>
                                             </div>
