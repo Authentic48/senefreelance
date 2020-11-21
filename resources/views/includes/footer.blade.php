@@ -50,9 +50,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <p class="wt-copyrights"><a target="_blank" href="#">Elite Tech</a></p>
+                    <p class="wt-copyrights"><a target="_blank" href="#">EliteTech Group</a></p>
                     <nav class="wt-addnav">
-                        
+                        <ul>
+                        <li>All Right Reserved</li>
+                        </ul>
                     </nav>
                 </div>
             </div>

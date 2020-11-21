@@ -24,6 +24,11 @@
                         </div>
                     </div>
                     @endforeach
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 float-left">
+                        <div class="wt-btnarea">
+                            <a href="{{ route('freelancers') }}" class="wt-btn">Voir Tous</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
