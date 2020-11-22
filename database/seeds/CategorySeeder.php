@@ -39,5 +39,7 @@ class CategorySeeder extends Seeder
         Category::create(['name' => 'Assurance']);
         Category::create(['name' => 'Audiovisuel']);
         Category::create(['name' => 'Menuiserie']);
+        Category::create(['name' => 'Mécanique']);
+        Category::create(['name' => 'Boulangerie et Patisserie']);
     }
 }
