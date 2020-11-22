@@ -10,7 +10,7 @@
     <div id="wt-verticalscrollbar" class="wt-verticalscrollbar">
         <div class="wt-companysdetails wt-usersidebar">
             <figure class="wt-companysimg">
-                <img src="images/sidebar/img-01.jpg" alt="img description">
+                <img src="images/transparent.jpg" alt="SenFreelance">
             </figure>
             <div class="wt-companysinfo">
                 @if (Auth::user()->image)
