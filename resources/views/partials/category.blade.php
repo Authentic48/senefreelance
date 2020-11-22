@@ -5,8 +5,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 push-md-2 col-lg-6 push-lg-3">
                     <div class="wt-sectionhead wt-textcenter">
                         <div class="wt-sectiontitle">
-                            <h2>Explorez Categories</h2>
-                            <span>Professionels par categories</span>
+                            <h2>Explorez Catégories</h2>
+                            <span>Professionels par catégories</span>
                         </div>
                     </div>
                 </div>
