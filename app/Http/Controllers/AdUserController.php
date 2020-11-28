@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Role;
 use Auth;
-
 class AdUserController extends Controller
 {
     /**
@@ -27,7 +26,8 @@ class AdUserController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.user.create');
+        $roles = Role::All();
+        return view('pages.admin.user.create', compact('roles'));
     }
 
     /**
@@ -65,7 +65,7 @@ class AdUserController extends Controller
         }
         $user->save();
         
-        $role = 'freelancer';
+        $role = $request->role;
         $userRole = Role::where('name', $role)->first();
         $user->roles()->attach($userRole);
         return redirect()->route('admin.users')->with(['status' => 'Compte creer avec succes']);

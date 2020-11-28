@@ -28,6 +28,15 @@
                                             @enderror
                                         </div>
                                         <div class="form-group form-group-half">
+                                            <span class="wt-select">
+                                            <select name="role">
+                                                @foreach ($roles as $role)
+                                                <option {{ old('role') }}>{{ $role->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            </span>
+                                        </div>
+                                        <div class="form-group form-group-half">
                                             <input type="email"
                                                 class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email">
                                             @error('email')

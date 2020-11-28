@@ -42,6 +42,7 @@
                                 <td>{{ $user->created_at->diffForHumans() }}</td>
                                 <td>{{ $user->updated_at->diffForHumans() }}</td>
                                 @if (Auth::user()->hasRole('admin'))
+                                @if (!$user->hasRole('admin'))
                                 <td>
                                     <div class="wt-actionbtn">
                                         <a href="{{ route('admin.users.edit', $user->ref) }}"
@@ -55,11 +56,12 @@
                                     </div>
                                 </td>
                                 @endif
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                     <!-- Pagination ==== -->
+                <!-- Pagination ==== -->
                  {{ $users->links('partials.paginator') }}       
                  <!-- Pagination END ==== -->
                 </div>
