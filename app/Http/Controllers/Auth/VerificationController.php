@@ -26,7 +26,14 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/";
+    protected $redirectTo;
+    protected function redirectTo()
+    {
+       if (Auth::user()->hasRole('freelancer')) 
+       {
+        return "freelancer/profile/create";
+       } 
+    }
 
     /**
      * Create a new controller instance.

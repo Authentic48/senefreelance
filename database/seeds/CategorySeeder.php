@@ -23,6 +23,7 @@ class CategorySeeder extends Seeder
         Category::create(['name' => 'Plomberie Et Sanitaire']);
         Category::create(['name' => 'Beauté']);
         Category::create(['name' => 'Marketing Digital']);
+        Category::create(['name' => 'Marketing']);
         Category::create(['name' => 'Logistique']);
         Category::create(['name' => 'Artisanat']);
         Category::create(['name' => 'Tourisme']);
@@ -41,5 +42,7 @@ class CategorySeeder extends Seeder
         Category::create(['name' => 'Menuiserie']);
         Category::create(['name' => 'Mécanique']);
         Category::create(['name' => 'Boulangerie et Patisserie']);
+        Category::create(['name' => 'Coiffure']);
+        Category::create(['name' => 'Couture']);
     }
 }
