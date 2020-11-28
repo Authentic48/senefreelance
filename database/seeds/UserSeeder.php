@@ -13,13 +13,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //User::truncate();
+        User::truncate();
 
         $adminRole = Role::where('name', 'admin')->first();
         
-        //$managerRole = Role::where('name', 'manager')->first();
+        $managerRole = Role::where('name', 'manager')->first();
 
-        //$freelancerRole = Role::where('name', 'freelancer')->first();
+        $freelancerRole = Role::where('name', 'freelancer')->first();
 
         $admin = User::create(
         [
@@ -28,9 +28,27 @@ class UserSeeder extends Seeder
             'password' => bcrypt('senfreelance048'),
             'ref' => substr(number_format(time() * rand(),0,'',''),0,7)
         ]);
+
+        $manager = User::create(
+        [
+                'name' => 'manager',
+                'email' => 'manager@gmail.com',
+                'password' => bcrypt('senfreelance048'),
+                'ref' => substr(number_format(time() * rand(),0,'',''),0,7)
+       ]);
+
+       $freelancer = User::create(
+        [
+            'name' => 'freelancer',
+            'email' => 'freelancer@gmail.com',
+            'password' => bcrypt('senfreelance048'),
+            'ref' => substr(number_format(time() * rand(),0,'',''),0,7)
+        ]);
   
         
         $admin->roles()->attach($adminRole);
+        $manager->roles()->attach($managerRole);
+        $freelancer->roles()->attach($freelancerRole);
     }
     
 }
