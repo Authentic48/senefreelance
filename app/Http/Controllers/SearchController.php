@@ -24,7 +24,7 @@ class SearchController extends Controller
                         ->orWhere('profession','Like', "%{$request->term}%")
                         ->orWhere('region','Like', "%{$request->term}%")
                         ->orWhere('commune','Like', "%{$request->term}%")
-                        ->get();
+                        ->paginate(6);
         
         $categories = Category::All();
         $regions = Region::All();
