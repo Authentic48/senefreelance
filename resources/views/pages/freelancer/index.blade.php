@@ -110,11 +110,9 @@
                                 <h2>Oops Introuvable !!!</h2>
                             </div>
                             @endif
-                            @if ($freelancers->count() != 0)
-                                <!-- Pagination ==== -->
+                            <!-- Pagination ==== -->
                             {{ $freelancers->links('partials.paginator') }}
                             <!-- Pagination END ==== --> 
-                            @endif
                         </div>
                     </div>
                 </div>
