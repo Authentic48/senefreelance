@@ -2,6 +2,8 @@
 
 Senefreelance was part of my university 5th semester project. The idea was to create an platform where people can find freelancer and assign them a work and give them feedback or report them if anything goes wrong. I was supervised and mentor by my professor.
 
+The frontend part of this app was an open source template that I customized for my own need.
+
 Anyone can clone this project, edit,improve and use it for your own purpose.
 
 ## Laravel Setup after cloning it from a repository
